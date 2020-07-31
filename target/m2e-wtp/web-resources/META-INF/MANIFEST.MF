@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: PKNU
 Build-Jdk: 1.8.0_242
-=======
-Built-By: choi
-Build-Jdk: 1.8.0_241
->>>>>>> 24f9845b87f6a5e2aa2972c6eb09948f7de3ec69
 Created-By: Maven Integration for Eclipse
 

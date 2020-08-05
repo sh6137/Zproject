@@ -1,11 +1,14 @@
 package com.spring.member.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
@@ -28,6 +31,7 @@ public class MemberController {
 		boolean result = memberService.loginCheck(vo, session);
 		System.out.println("컨트롤러부분 로그인체크" + result);
 		ModelAndView mv = new ModelAndView();
+		
 		if (result == true) { // 로그인 성공
             // main.jsp로 이동
 			mv.addObject("msg", "success");
@@ -49,4 +53,18 @@ public class MemberController {
         return mv;
     }
 	
+    @RequestMapping("/Member/JoinForm")
+	public String joinForm() {
+		return "member/joinForm";
+	}
+	
+	@RequestMapping("/Member/Join")
+	public ModelAndView join(@RequestParam HashMap<String, Object> map) {
+		System.out.println(map);
+		memberService.setJoin(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		return mv;
+	}
 }

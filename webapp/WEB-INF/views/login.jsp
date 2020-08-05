@@ -61,6 +61,9 @@ $(document).ready(function(){
                 </c:if>
                 </td>
             </tr>
+            <tr>
+            <td td colspan="2" align="center"><a href="/Member/JoinForm">회원가입 페이지</a></td>
+            </tr>
         </table>
     </form>
 	

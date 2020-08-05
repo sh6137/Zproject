@@ -14,5 +14,8 @@
 	<c:if test="${msg == 'success'}">
     <h2>${sessionScope.m_id}(${sessionScope.m_name})님 환영합니다.</h2>
     </c:if>
+    
+    
+    <a href="/">회원정보 수정</a>
 </body>
 </html>

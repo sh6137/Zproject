@@ -34,6 +34,7 @@ public class MemberServiceImpl implements MemberService {
             // 세션 변수 등록
             session.setAttribute("m_id", vo2.getM_id());
             session.setAttribute("m_name", vo2.getM_name());
+            
             return result;
         } 
         return result;

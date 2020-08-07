@@ -28,6 +28,14 @@
     	}		 
 	 </insert>
 	 
+	 <select id="FindId" parameterType="hashmap" resultType="com.spring.member.vo.MemberVo">
+        SELECT M_ID
+        	FROM MEM
+      		WHERE M_NAME = #{m_name} 
+      		AND TEL = #{tel}
+      		AND EMAIL = #{email}
+    </select>
    
+   	
 </mapper>        
 

@@ -63,6 +63,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	//회원가입 구역
 	@RequestMapping("/JoinForm") 
 	public String joinForm() { 
 		return "join/joinForm"; 
@@ -77,12 +78,46 @@ public class MemberController {
 		mv.setViewName("login/loginForm");
 		return mv;
 	}
-	@RequestMapping("/FindID")
-	public ModelAndView findId() {
-		System.out.println("find모델엔뷰");
+	//회원가입 구역 끝
+	
+	//아이디 비밀번호 찾는 구역
+	@RequestMapping("/FindIDForm")
+	public ModelAndView findIdForm() {
+		System.out.println("findform모델엔뷰");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("join/findIdForm");
-		return mv;
+		return mv;	
+	}
+	@RequestMapping("/FindID")
+	public ModelAndView findId(@RequestParam HashMap<String, Object> map) {
+		System.out.println("find모델엔뷰" + map);
 		
+		MemberVo vo = memberService.getFindId(map);
+		System.out.println("findid모델뷰에 " + vo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("find",vo);
+		mv.setViewName("join/findId");
+		//memberService.setFindId(map);
+		return mv;
+	}
+	
+	@RequestMapping("/FindPWFrom")
+	public ModelAndView findPwFrom() {
+		System.out.println("findpwform모델엔뷰");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("join/findPWForm");
+		return mv;
+	}
+	@RequestMapping("/FindPW")
+	public ModelAndView findPw(@RequestParam HashMap<String, Object> map) {
+		System.out.println("findPw모델엔뷰" + map);
+			
+		MemberVo vo = memberService.getFindPw(map);
+		System.out.println("findPw모델뷰에 " + vo);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("findpw",vo);
+		mv.setViewName("join/findPw");
+		//memberService.setFindId(map);
+		return mv;
 	}
 }

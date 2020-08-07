@@ -28,4 +28,18 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.insert("Mem.MemInsert", map);
 	}
 
+	@Override
+	public MemberVo getFindId(HashMap<String, Object> map) {
+		MemberVo memberVo= sqlSession.selectOne("Mem.FindId",map);
+		System.out.println(memberVo);
+		return memberVo;
+	}
+
+	@Override
+	public MemberVo getFindPw(HashMap<String, Object> map) {
+		MemberVo memberVo= sqlSession.selectOne("Mem.FindPw",map);
+		System.out.println(memberVo);
+		return memberVo;
+	}
+
 }

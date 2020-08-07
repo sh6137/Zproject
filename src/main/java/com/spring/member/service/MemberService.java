@@ -10,4 +10,8 @@ public interface MemberService {
 
 	public void setJoin(HashMap<String, Object> map);
 
+	public MemberVo getFindId(HashMap<String, Object> map);
+
+	public MemberVo getFindPw(HashMap<String, Object> map);
+
 }

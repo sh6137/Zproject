@@ -12,6 +12,9 @@
 		<div><input type="text" name="m_id" placeholder="아이디 입력"></div>
 		<div><input type="password" name="m_pw" placeholder="암호"></div>
 		<div><input type="submit" value="로그인"></div>
+		
 	</form>
+		<a href="/JoinForm">회원가입</a>
+		<a href="/Find">아이디 비밀번호 찾기</a>
 </body>
 </html>

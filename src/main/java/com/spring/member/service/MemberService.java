@@ -8,4 +8,6 @@ public interface MemberService {
 
 	public MemberVo login(HashMap<String, Object> map);
 
+	public void setJoin(HashMap<String, Object> map);
+
 }

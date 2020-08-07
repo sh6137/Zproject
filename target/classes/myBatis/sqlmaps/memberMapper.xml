@@ -11,7 +11,22 @@
       		AND M_PW = #{m_pw}
     </select>
    
-	 
+	 <insert id="MemInsert"
+     		 statementType="CALLABLE"
+     		 parameterType="hashmap" >
+     		 
+    	{
+    		CALL PKG_MEM.PROC_MEM_INSERT
+    		(
+    			#{ m_id, mode = IN, jdbcType = VARCHAR },
+    			#{ m_name, mode = IN, jdbcType = VARCHAR },
+    			#{ m_pw, mode = IN, jdbcType = VARCHAR },
+    			#{ tel, mode = IN, jdbcType = VARCHAR },
+    			#{ email, mode = IN, jdbcType = VARCHAR },
+    			#{ lvl, mode = IN, jdbcType = VARCHAR }
+    		)    		
+    	}		 
+	 </insert>
    
 </mapper>        
 

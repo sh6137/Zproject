@@ -23,4 +23,9 @@ public class MemberDaoImpl implements MemberDao {
 		return memberVo;
 	}
 
+	@Override
+	public void setJoin(HashMap<String, Object> map) {
+		sqlSession.insert("Mem.MemInsert", map);
+	}
+
 }

@@ -24,6 +24,9 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		switch (request.getRequestURI()) { //현재 파일정보
 		case "/login":
 		case "/loginProcess":
+		case "/JoinForm":
+		case "/Join/Join":
+		case "/FindID":
 			return true; //제외
 		}
 		if(object ==null) {

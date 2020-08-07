@@ -2,7 +2,6 @@ package com.spring.member.controller;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
@@ -61,5 +61,28 @@ public class MemberController {
 		//return "redirect:/PDS/List?menu_id=MENU01";
 		//return "/PDS/List?menu_id=MENU01&nowpage=1&pagecount=2&pagegrpnum=1";
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/JoinForm") 
+	public String joinForm() { 
+		return "join/joinForm"; 
+	}
+	
+	@RequestMapping("/Join/Join")
+	public ModelAndView join(@RequestParam HashMap<String, Object> map) {
+		System.out.println("join모델엔뷰"+map);
+		memberService.setJoin(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("login/loginForm");
+		return mv;
+	}
+	@RequestMapping("/FindID")
+	public ModelAndView findId() {
+		System.out.println("find모델엔뷰");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("join/findIdForm");
+		return mv;
+		
 	}
 }

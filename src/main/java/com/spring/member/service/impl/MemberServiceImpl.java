@@ -23,4 +23,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberVo;
 	}
 
+	@Override
+	public void setJoin(HashMap<String, Object> map) {
+		
+			memberDao.setJoin(map);
+		
+	}
+
 }

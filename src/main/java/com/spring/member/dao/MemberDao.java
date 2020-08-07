@@ -8,4 +8,6 @@ public interface MemberDao {
 
 	MemberVo login(HashMap<String, Object> map);
 
+	void setJoin(HashMap<String, Object> map);
+
 }

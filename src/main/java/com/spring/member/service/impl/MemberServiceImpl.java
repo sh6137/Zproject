@@ -2,8 +2,6 @@ package com.spring.member.service.impl;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,36 +17,17 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDao memberDao;
 
 	@Override
+	public MemberVo login(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.login(map);
+		
+		return memberVo;
+	}
+
+	@Override
 	public void setJoin(HashMap<String, Object> map) {
-		memberDao.setJoin(map);
-	}
-
-	@Override
-	public boolean loginCheck(MemberVo vo, HttpSession session) {
-		boolean result = memberDao.loginCheck(vo);
-        System.out.println("맴버서비스임플리먼트부분"+result);
-        System.out.println(vo.getM_id());
-        System.out.println(vo.getM_pw());
-		if (result) { // true일 경우 세션에 등록
-        	MemberVo vo2= viewMember(vo);
-            // 세션 변수 등록
-            session.setAttribute("m_id", vo2.getM_id());
-            session.setAttribute("m_name", vo2.getM_name());
-            
-            return result;
-        } 
-        return result;
-	}
-
-	@Override
-	public MemberVo viewMember(MemberVo vo) {
-		return memberDao.viewMember(vo);
-	}
-
-	@Override
-	public void logout(HttpSession session) {
-		 // 세션 정보를 초기화 시킴
-        session.invalidate();
+		
+			memberDao.setJoin(map);
+		
 	}
 
 }

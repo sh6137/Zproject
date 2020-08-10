@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>회원가입</h1>
-	<form action="/Member/Join" method="POST">
+<h1>회원가입</h1>
+<form action="/Join/Join" method="POST">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -38,5 +38,7 @@
 		</table>
 		<input type="hidden" name="lvl" value="1" />
 	</form>
+
+
 </body>
 </html>

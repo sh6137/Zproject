@@ -34,7 +34,7 @@
       		WHERE M_NAME = #{m_name} 
       		AND TEL = #{tel}
       		AND EMAIL = #{email}
-    </select>
+     </select>
    
    	
 </mapper>        

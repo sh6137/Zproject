@@ -120,4 +120,13 @@ public class MemberController {
 		//memberService.setFindId(map);
 		return mv;
 	}
+	
+	@RequestMapping("/ChangePw")
+	public ModelAndView changePw(@RequestParam HashMap<String, Object> map) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("ChangePw 모델엔뷰 :"+map);
+		memberService.setChangePw(map);
+		mv.setViewName("login/loginForm");
+		return mv;
+	}
 }

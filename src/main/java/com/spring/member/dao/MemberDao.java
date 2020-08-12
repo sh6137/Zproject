@@ -14,4 +14,6 @@ public interface MemberDao {
 
 	MemberVo getFindPw(HashMap<String, Object> map);
 
+	void setChangePw(HashMap<String, Object> map);
+
 }

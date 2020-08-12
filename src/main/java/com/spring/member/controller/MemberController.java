@@ -2,16 +2,13 @@ package com.spring.member.controller;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
@@ -112,39 +109,24 @@ public class MemberController {
 		return mv;
 	}
 	@RequestMapping("/FindPW")
-	@ResponseBody
-	public ModelAndView findPw(@RequestParam HashMap<String, Object> map, HttpServletResponse response) {
+	public ModelAndView findPw(@RequestParam HashMap<String, Object> map) {
 		System.out.println("findPw모델엔뷰" + map);
-		String mapName = (String) map.get("m_name");	
-		String mapId = (String) map.get("m_id");	
-		String mapEmail = (String) map.get("email");	
-		String mapTel = (String) map.get("tel");	
-
+			
 		MemberVo vo = memberService.getFindPw(map);
-		String voName = vo.getM_name();
-		String voId = vo.getM_id();
-		String voEmail = vo.getEmail();
-		String voTel = vo.getTel();
-		
-//		if(voName == null || voId == null || voEmail == null || voTel == null) {
-//			
-//		}
-//
+		System.out.println("findPw모델뷰에 " + vo);
 		ModelAndView mv = new ModelAndView();
-		
-		if(mapName.equals(voName) && mapId.equals(voId) && 
-				mapEmail.equals(voEmail) && mapTel.equals(voTel)) {
-			mv.addObject("findpw",vo);
-			mv.setViewName("join/findPw");
-		}else
-		{
-			mv.setViewName("join/findPWForm");
-		}
-//
-//		System.out.println("findPw모델뷰에 " + vo);
-		
-
+		mv.addObject("findpw",vo);
+		mv.setViewName("join/findPw");
 		//memberService.setFindId(map);
+		return mv;
+	}
+	
+	@RequestMapping("/ChangePw")
+	public ModelAndView changePw(@RequestParam HashMap<String, Object> map) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("ChangePw 모델엔뷰 :"+map);
+		memberService.setChangePw(map);
+		mv.setViewName("login/loginForm");
 		return mv;
 	}
 }

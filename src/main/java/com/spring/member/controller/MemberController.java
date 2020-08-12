@@ -1,15 +1,19 @@
 package com.spring.member.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
+
 
 @Controller
 public class MemberController {
@@ -19,34 +23,66 @@ public class MemberController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return "login";
+		
+		return "home";
 	}
 	
-	@RequestMapping("Member/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute MemberVo vo, 
-				HttpSession session) {
-		boolean result = memberService.loginCheck(vo, session);
-		System.out.println("컨트롤러부분 로그인체크" + result);
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginform() {
+		return "login/loginForm";
+	}
+	
+	//로그인
+	@RequestMapping(value="/loginProcess", method=RequestMethod.POST)
+	public String loginProcess(
+			HttpSession session,
+			@RequestParam HashMap<String, Object>map) {
+				
+		String	returnURL ="";
+		if(session.getAttribute("login")!= null) {
+			session.removeAttribute("login");
+		}
+		MemberVo vo = memberService.login(map);
+		if(vo !=null) {
+			session.setAttribute("login", vo);
+			returnURL ="redirect:/";
+			
+		}else {
+			returnURL = "redirect:/login";
+		}
+		return returnURL;
+		
+	}
+	//로그아웃
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("login");
+		session.invalidate();
+		//return "redirect:/PDS/List?menu_id=MENU01";
+		//return "/PDS/List?menu_id=MENU01&nowpage=1&pagecount=2&pagegrpnum=1";
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/JoinForm") 
+	public String joinForm() { 
+		return "join/joinForm"; 
+	}
+	
+	@RequestMapping("/Join/Join")
+	public ModelAndView join(@RequestParam HashMap<String, Object> map) {
+		System.out.println("join모델엔뷰"+map);
+		memberService.setJoin(map);
+		
 		ModelAndView mv = new ModelAndView();
-		if (result == true) { // 로그인 성공
-            // main.jsp로 이동
-			mv.addObject("msg", "success");
-			mv.setViewName("main/home");
-        } else {    // 로그인 실패
-            // login.jsp로 이동
-        	mv.addObject("msg", "failure");
-        	mv.setViewName("login");
-        }
-        return mv;
+		mv.setViewName("login/loginForm");
+		return mv;
 	}
-	 // 03. 로그아웃 처리
-    @RequestMapping("logout")
-    public ModelAndView logout(HttpSession session){
-        memberService.logout(session);
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("msg", "logout");
-        mv.setViewName("login");
-        return mv;
-    }
-	
+	@RequestMapping("/FindID")
+	public ModelAndView findId() {
+		System.out.println("find모델엔뷰");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("join/findIdForm");
+		return mv;
+		
+	}
 }

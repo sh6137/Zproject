@@ -78,7 +78,6 @@
 </script>
 </head>
 <body>
-	<%@include file="/WEB-INF/include/menus.jsp" %>
 	<div>UpdateInfo</div>
 	<form action="/INFO/UpdateInfo" method="POST" id="updateFrm">
 		<table>

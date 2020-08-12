@@ -10,4 +10,10 @@ public interface MemberDao {
 
 	void setJoin(HashMap<String, Object> map);
 
+	MemberVo getFindId(HashMap<String, Object> map);
+
+	MemberVo getFindPw(HashMap<String, Object> map);
+
+	void setChangePw(HashMap<String, Object> map);
+
 }

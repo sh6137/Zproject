@@ -4,16 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디부터 찾기</title>
+<title>비밀번호 찾는 창</title>
 </head>
 <body>
-<h1>아이디 찾기</h1>
-<form action="/FindID" method="POST">
+<h2>비밀번호 찾기</h2>
+<form action="/FindPW" method="POST">
 
 	<table>
 			<tr>
 				<td>이름</td>
 				<td><input type="text" name="m_name" /></td>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="m_id" /></td>
 			</tr>
 			<tr>
 				<td>전화번호</td>
@@ -25,12 +29,10 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="아이디찾기" />
+					<input type="submit" value="비밀번호찾기" />
 				</td>
 			</tr>
 	</table>
 </form>
-<a href="/FindPWFrom">비밀번호 찾기</a>
-
 </body>
 </html>

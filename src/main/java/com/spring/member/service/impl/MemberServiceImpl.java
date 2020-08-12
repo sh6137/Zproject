@@ -30,4 +30,23 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVo getFindId(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.getFindId(map);
+		
+		return memberVo;
+	}
+
+	@Override
+	public MemberVo getFindPw(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.getFindPw(map);
+		
+		return memberVo;
+	}
+
+	@Override
+	public void setChangePw(HashMap<String, Object> map) {
+		memberDao.setChangePw(map);
+	}
+
 }

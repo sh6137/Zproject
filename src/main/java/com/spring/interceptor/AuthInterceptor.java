@@ -26,7 +26,11 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		case "/loginProcess":
 		case "/JoinForm":
 		case "/Join/Join":
-		case "/FindID":
+		case "/FindIDForm":
+		case "/FindID":	
+		case "/FindPWFrom":
+		case "/FindPW":
+		case "/ChangePw":
 			return true; //제외
 		}
 		if(object ==null) {

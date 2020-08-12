@@ -2,13 +2,16 @@ package com.spring.member.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
@@ -109,14 +112,38 @@ public class MemberController {
 		return mv;
 	}
 	@RequestMapping("/FindPW")
-	public ModelAndView findPw(@RequestParam HashMap<String, Object> map) {
+	@ResponseBody
+	public ModelAndView findPw(@RequestParam HashMap<String, Object> map, HttpServletResponse response) {
 		System.out.println("findPw모델엔뷰" + map);
-			
+		String mapName = (String) map.get("m_name");	
+		String mapId = (String) map.get("m_id");	
+		String mapEmail = (String) map.get("email");	
+		String mapTel = (String) map.get("tel");	
+
 		MemberVo vo = memberService.getFindPw(map);
-		System.out.println("findPw모델뷰에 " + vo);
+		String voName = vo.getM_name();
+		String voId = vo.getM_id();
+		String voEmail = vo.getEmail();
+		String voTel = vo.getTel();
+		
+//		if(voName == null || voId == null || voEmail == null || voTel == null) {
+//			
+//		}
+//
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("findpw",vo);
-		mv.setViewName("join/findPw");
+		
+		if(mapName.equals(voName) && mapId.equals(voId) && 
+				mapEmail.equals(voEmail) && mapTel.equals(voTel)) {
+			mv.addObject("findpw",vo);
+			mv.setViewName("join/findPw");
+		}else
+		{
+			mv.setViewName("join/findPWForm");
+		}
+//
+//		System.out.println("findPw모델뷰에 " + vo);
+		
+
 		//memberService.setFindId(map);
 		return mv;
 	}

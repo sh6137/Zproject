@@ -44,9 +44,4 @@ public class MemberServiceImpl implements MemberService {
 		return memberVo;
 	}
 
-	@Override
-	public void setChangePw(HashMap<String, Object> map) {
-		memberDao.setChangePw(map);
-	}
-
 }

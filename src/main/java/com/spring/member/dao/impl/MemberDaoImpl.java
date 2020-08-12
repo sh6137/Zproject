@@ -38,14 +38,8 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public MemberVo getFindPw(HashMap<String, Object> map) {
 		MemberVo memberVo= sqlSession.selectOne("Mem.FindPw",map);
-		System.out.println("Memberdaoimpl : "+memberVo);
+		System.out.println(memberVo);
 		return memberVo;
-	}
-
-	@Override
-	public void setChangePw(HashMap<String, Object> map) {
-		sqlSession.update("Mem.ChangePw", map);
-		System.out.println("changepwdaoimpl : "+sqlSession.update("Mem.ChangePw", map));
 	}
 
 }

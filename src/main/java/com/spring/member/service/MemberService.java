@@ -14,6 +14,4 @@ public interface MemberService {
 
 	public MemberVo getFindPw(HashMap<String, Object> map);
 
-	public void setChangePw(HashMap<String, Object> map);
-
 }

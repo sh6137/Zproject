@@ -111,12 +111,18 @@ public class MemberController {
 	@RequestMapping("/FindPW")
 	public ModelAndView findPw(@RequestParam HashMap<String, Object> map) {
 		System.out.println("findPw모델엔뷰" + map);
+		ModelAndView mv = new ModelAndView();
 			
 		MemberVo vo = memberService.getFindPw(map);
 		System.out.println("findPw모델뷰에 " + vo);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("findpw",vo);
-		mv.setViewName("join/findPw");
+		if(vo ==null) {
+			mv.setViewName("join/findPWForm");
+		}
+		else {
+			mv.addObject("findpw",vo);
+			mv.setViewName("join/findPw");
+			
+		}
 		//memberService.setFindId(map);
 		return mv;
 	}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+	<mapper namespace="res">
+
+	    <resultMap id="resMap" type="com.spring.res.vo.ResVO">
+	    	<result property="res_idx"			column="RES_IDX"			javaType="int" />
+	    	<result property="m_id"				column="M_ID"				javaType="string" />
+	    	<result property="r_id"				column="R_ID"				javaType="string" />
+	    	<result property="r_name"			column="R_NAME"			javaType="string" />
+	    	<result property="book_name"		column="BOOK_NAME"			javaType="string" />
+	    	<result property="book_date"		column="BOOK_DATE"			javaType="string" />
+	    	<result property="start_date"		column="START_DATE"			javaType="string" />
+	    	<result property="end_date"			column="END_DATE"			javaType="string" />
+	    	<result property="peri"				column="PERI"				javaType="int" />
+	    	<result property="res_status"		column="RES_STATUS"			javaType="int" />
+	    	<result property="res_status_info"	column="RES_STATUS_INFO"	javaType="string" />
+	    	<result property="r_price"			column="R_PRICE"			javaType="int" />
+	    	<result property="rn"				column="RN"					javaType="int" />
+	    	<result property="r_tel"			column="R_TEL"				javaType="string" />
+	    	<result property="cc_true"			column="CC_TRUE"			javaType="string" />
+	    </resultMap>
+    
+	    <select id="resInfo" statementType="CALLABLE"
+	    	parameterType="hashmap" resultType="com.spring.res.vo.ResVO">
+	    	
+	    	{CALL PKG_RES.PROC_REC_RES(
+	    		#{m_id,		mode=IN,	jdbcType=VARCHAR},
+	    		#{result,	mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=resMap }
+	    	)}
+	    	
+	    </select>
+	    
+	    <insert id="resCc" statementType="CALLABLE"
+	    	parameterType="hashmap">
+	    	
+	    	{CALL PKG_RES.PROC_INSERT_CC(
+	    		#{res_idx,	mode=IN,	jdbcType=INTEGER},
+	    		#{m_id,		mode=IN,	jdbcType=VARCHAR},
+	    		#{r_id,		mode=IN,	jdbcType=VARCHAR}
+	    	)}
+	    	
+	    </insert>
+
+	    <select id="resList" statementType="CALLABLE"
+	    	parameterType="hashmap" resultType="com.spring.res.vo.ResVO">
+	    	
+	    	{CALL PKG_RES.PROC_RES_LIST(
+	    		#{m_id,			mode=IN,	jdbcType=VARCHAR},
+	    		#{start_date,	mode=IN,	jdbcType=VARCHAR},
+	    		#{end_date,		mode=IN,	jdbcType=VARCHAR},
+	    		#{search,		mode=IN,	jdbcType=INTEGER},
+	    		#{result,		mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=resMap }
+	    	)}
+	    	
+	    </select>
+   
+	</mapper>  
+    

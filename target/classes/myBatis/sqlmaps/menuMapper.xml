@@ -1,4 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+	<mapper namespace="menu">
+
+	    <resultMap id="menuMap" type="com.spring.menu.vo.MenuVO">
+	    	<result property="com_id"		column="COM_ID"		javaType="string" />
+	    	<result property="grp_id"		column="GRP_ID"		javaType="string" />
+	    	<result property="com_val"		column="COM_VAL"	javaType="string" />
+	    	<result property="com_lvl"		column="COM_LVL"	javaType="int" />
+	    	<result property="parent_id"	column="PARENT_ID"	javaType="string" />
+	    </resultMap>
+    
+	    <select id="menuList" statementType="CALLABLE"
+	    	parameterType="hashmap" resultType="com.spring.menu.vo.MenuVO">
+	    	
+			{CALL PKG_INFO.PROC_MENU_LIST(
+	    		#{com_id,		mode=IN,	jdbcType=VARCHAR},
+	    		#{result,		mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=menuMap }
+	    	)}
+			
+	    </select>
+    
+	    
+    
+    <!-- 
+    <select id="PdsContent" statementType="CALLABLE"
+    	parameterType="hashmap" resultType="com.spring.pds.vo.PDSVO">
+    	{CALL PKG_PDS.PROC_PDS_CONTENT(
+    		#{idx,			mode=IN,	jdbcType=INTEGER},
+    		#{menuid,		mode=IN,	jdbcType=VARCHAR},
+    		#{result,		mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=PdsListMap }
+    	)}
+    </select>
+    
+    <resultMap id="FileListMap" type="com.spring.pds.vo.FilesVO">
+    	<result property="fidx"		column="FIDX"		javaType="int" />
+    	<result property="idx"		column="IDX"		javaType="int" />
+    	<result property="fname"	column="FNAME"		javaType="string" />
+    	<result property="fext"		column="FEXT"		javaType="string" />
+    	<result property="sname"	column="SNAME"		javaType="string" />
+    </resultMap>
+    
+    <select id="FileList" statementType="CALLABLE"
+    	parameterType="hashmap" resultType="com.spring.pds.vo.FilesVO">
+    	{CALL PKG_PDS.PROC_PDS_FILELIST(
+    		#{idx,			mode=IN,	jdbcType=INTEGER},
+    		#{result,		mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=FileListMap }
+    	)}
+    </select>
+    
+    <insert id="PdsInsert" statementType="CALLABLE" 
+        parameterType="hashmap" >
+    {CALL PKG_PDS.PROC_PDS_INSERT(
+    	#{menuid,		mode=IN,	jdbcType=VARCHAR},
+    	#{title,		mode=IN,	jdbcType=VARCHAR},
+    	#{bcontenet,	mode=IN,	jdbcType=VARCHAR},
+    	#{bname,		mode=IN,	jdbcType=VARCHAR},
+    	#{bnum,			mode=IN,	jdbcType=INTEGER},
+    	#{lvl,			mode=IN,	jdbcType=INTEGER},
+    	#{step,			mode=IN,	jdbcType=INTEGER},
+    	#{nref,			mode=IN,	jdbcType=INTEGER},    	    	
+    	#{fnms,			mode=IN,	jdbcTypeName=FILE_ARRAY, typeHandler=com.spring.pds.service.typehandler.ListMapTypeHandler},
+    	#{fexts,		mode=IN,	jdbcTypeName=FILE_ARRAY, typeHandler=com.spring.pds.service.typehandler.ListMapTypeHandler},    	
+    	#{sfnms,		mode=IN,	jdbcTypeName=FILE_ARRAY, typeHandler=com.spring.pds.service.typehandler.ListMapTypeHandler}   	
+    )}   
+    </insert>
+    
+    
+    
+    
+ -->
+   
+	</mapper>  
+    

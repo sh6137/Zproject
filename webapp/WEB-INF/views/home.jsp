@@ -9,13 +9,9 @@
 </head>
 <body>
 	
-   <h1>게시판(SpBoard)</h1>
-   <p><a href="/SpBoard/List">Sp 게시판</a></p>
-   <p><a href="/SpBoard/WriteForm">새글 쓰기</a></p>
-   <p>
-   <p><a href="/Menus/List">메뉴관리</a></p>
-   <p>
-   <p><a href="/PDS/List?menu_id=MENU01">자료실</a></p>
+   	<div><a href="/INFO/SerInfo?m_id=TEST01">My Info:first page</a></div>
+	<div><a href="/RES/ResInfo?m_id=TEST01">My Reservation</a></div>
+	<div><a href="/RES/ResListForm?m_id=TEST01">이전예약</a></div>
    
 </body>
 </html>

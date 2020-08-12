@@ -8,7 +8,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
 </head>
 <body>
-	<%@include file="/WEB-INF/include/menus.jsp" %>
    <div>개인정보</div>
    <form action="/INFO/ConInfo" method="POST">
       <table>

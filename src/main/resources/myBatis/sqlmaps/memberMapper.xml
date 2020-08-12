@@ -34,8 +34,28 @@
       		WHERE M_NAME = #{m_name} 
       		AND TEL = #{tel}
       		AND EMAIL = #{email}
-    </select>
+     </select>
    
+   	 <select id="FindPw" parameterType="hashmap" resultType="com.spring.member.vo.MemberVo">
+        SELECT M_ID, M_NAME ,M_PW, TEL, EMAIL
+        	FROM MEM
+      		WHERE M_ID = #{m_id} 
+      		AND M_NAME = #{m_name} 
+      		AND TEL = #{tel}
+      		AND EMAIL = #{email}
+     </select>
+   	
+   	
+   	 <update id="ChangePw" parameterType="hashmap">
+   	 	
+   	 	UPDATE MEM SET M_PW = #{m_pw} 
+			WHERE M_ID =#{m_id} 
+			AND M_NAME = #{m_name} 
+			AND TEL = #{tel} 
+			AND EMAIL = #{email} 
+			
+   	 
+   	 </update>
    	
 </mapper>        
 

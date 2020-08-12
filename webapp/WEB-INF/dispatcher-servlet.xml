@@ -31,8 +31,13 @@
        class="org.apache.commons.dbcp.BasicDataSource" 
        destroy-method="close">
       <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+<<<<<<< HEAD
       <property name="url"      value="jdbc:oracle:thin:@localhost:1521:orcl" />
       <property name="username" value="zprj" />
+=======
+      <property name="url"      value="jdbc:oracle:thin:@localhost:1521:xe" />
+      <property name="username" value="spring" />
+>>>>>>> parent of b5df0a0... 08/12
       <property name="password" value="1234" />    
     </bean>
   

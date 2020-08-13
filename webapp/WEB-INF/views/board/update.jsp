@@ -16,7 +16,7 @@
 function inputCheck() {
 	  if( $("[name=title]").val() == '' ) {
 		  $('#err_title').html("<b>제목을 입력하세요</b>");
-		  alert('수정');
+		  alert('수정해주세요');
 		  return false;
 	  }
 	  if( $("[name=m_name]").val() == '' ) return false;
@@ -45,7 +45,7 @@ $( function() {
 	<br  />
 	
 	<!-- 수정할 자료 입력  -->
-   <form  id="form1" action="/PDS/Update" method="POST" enctype="multipart/form-data">   
+   <form  id="form1" action="/PDS/Update" method="POST" >   
    <input type="hidden"  name="b_idx" 		value="${ pdsVo.b_idx }" />
    <input type="hidden"  name="m_id" 	    value="mmmmm" />			<!-- 아이디 받아오기  -->
    

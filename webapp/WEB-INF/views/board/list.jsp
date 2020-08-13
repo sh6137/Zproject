@@ -65,7 +65,7 @@ a { text-decoration:none }
 	  <input type="hidden"  name="b_idx" 		value="${ pdsVo.b_idx }" />
 	  <input type="hidden"  name="com_id" 		value="${ pdsVo.com_id }" />
 	  <input type="hidden"  name="b_row" 		value="${ pdsVo.b_row }" />
-	  <input type="hidden"  name="b_id" 		value="${ pdsVo.m_id }" />
+	  <input type="hidden"  name="m_id" 		value="${ pdsVo.m_id }" />
 	  	 
 </body>
 </html>

@@ -6,13 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/css/common.css" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 function inputCheck() {
 	  if( $("[name=title]").val() == '' ) {
 		  $('#err_title').html("<b>제목을 입력하세요</b>");
-		  alert('수정');
+		  alert('작성해주세요');
 		  return false;
 	  }
 	  if( $("[name=m_name]").val() == '' ) return false;
@@ -31,9 +30,9 @@ $( function() {
 		  }
 	  })
 } );
+	
 </script>
 </head>
-
 <body>
 
   <h1> 새글쓰기</h1>
@@ -41,7 +40,7 @@ $( function() {
   
   <h2>메뉴아이디:<c:out value="${com_id}" ></c:out> </h2>
   
-  <form id="write" action="/PDS/Write" method="POST"  enctype="multipart/form-data">
+  <form action="/PDS/Write" method="POST" id="write">
   <table>
     <tr>
       <td>작성자</td>
@@ -62,14 +61,14 @@ $( function() {
     </tr>
     
     <!--  com_id,m_id,readcount --> 
-    <input type="hidden" name="com_id"  value=<c:out value="${com_id}" ></c:out> /> 
+    <input type="hidden" name="com_id"  value="${com_id}" /> 
     <input type="hidden" name="m_id"  value="sky"  />
-    <input type="hidden" name="readcount"  value="${ pdsVo.readcount }"  />
+    <input type="hidden" name="readcount"  value="0"  />
     <input type="hidden" name="bnum"  value="${ pdsVo.bnum }"  />
     <input type="hidden" name="lvl"   value="${ pdsVo.lvl }"  />
     <input type="hidden" name="step"  value="${ pdsVo.step }"  />
     <input type="hidden" name="nref"  value="${ pdsVo.nref }"  />
-	
+   
 
   </table>
   </form>

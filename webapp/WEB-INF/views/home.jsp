@@ -19,6 +19,8 @@
    	<div><a href="/INFO/SerInfo?m_id=${login.m_id }">My Info:first page</a></div>
 	<div><a href="/RES/ResInfo?m_id=${login.m_id }">My Reservation</a></div>
 	<div><a href="/RES/ResListForm?m_id=${login.m_id }">이전예약</a></div>
+	
+	<div><a href="/PDS/home">공지사항</a></div>
    
 >>>>>>> 은영
 </body>

@@ -22,7 +22,7 @@ public class PdsController {
 
 	
 	
-	  @RequestMapping("/") public String home(
+	  @RequestMapping("/PDS/home") public String home(
 	  
 	  @RequestParam HashMap<String , Object> map){
 	  
@@ -72,7 +72,7 @@ public class PdsController {
 
 		mv.addObject("com_id", map.get("com_id"));
 
-		mv.setViewName("redirect:/");
+		mv.setViewName("redirect:/PDS/home");
 
 		return mv;
 
@@ -105,7 +105,7 @@ public class PdsController {
 		pdsService.setDelete(map);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/"	);
+		mv.setViewName("redirect:/PDS/home"	);
 		return mv;
 	}
 
@@ -132,7 +132,7 @@ public class PdsController {
 			pdsService.updatePds(map);
 			ModelAndView mv = new ModelAndView();
 			System.out.println("수정2:" + map);
-			mv.setViewName("redirect:/");
+			mv.setViewName("redirect:/PDS/home");
 			
 			return mv;
 			

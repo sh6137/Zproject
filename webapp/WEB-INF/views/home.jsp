@@ -13,6 +13,7 @@
 	<h1> 안녕하세요 메인페이지 홈</h1>
 	<h3>${login.m_id }</h3>
 	<h3>${login.m_pw}</h3>
+	<a href = "/Res"> 예약페이지로 </a>
 	 <a href="/logout">로그아웃</a>
 =======
 	

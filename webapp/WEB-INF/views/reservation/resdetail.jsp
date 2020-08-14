@@ -29,9 +29,21 @@ $('select').on('change',function(){
 	 
 $(function(){
 	$("body").on("click","#btnRes",function(){
+		/* var rowData = new Array();
+		var tdArr   = new Array();  */
+		
+		var select_id   = document.getElementById("selectBox");
+		var total   =  select_id[document.getElementById("selectBox").selectedIndex].value;
+		
+		var select_id2   = document.getElementById("selectBox2");
+		var peri   =  select_id2[document.getElementById("selectBox2").selectedIndex].value;
 		  
-		  
-		  location.href ="/Res/Confirm";
+		var book_tel   = document.getElementById("book_tel").value;
+	
+		
+		console.log(book_tel); 
+		 
+		  location.href ="/Res/Confirm&peri="+peri+"&total="+total+"&book_tel="+book_tel+"";
 		  });
 
 });
@@ -99,7 +111,7 @@ for(i=2;i<= ${map.max_cap}; i++){
 </tr>
 <tr>
 <td>휴대폰번호</td>
-<td><input type ="text" placeholder = "-제외하고 입력하세요"/></td> 
+<td><input type ="text" id="book_tel" placeholder = "-제외하고 입력하세요"/></td> 
 </tr>
 
 <tr>

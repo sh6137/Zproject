@@ -19,6 +19,7 @@ public class MemberDaoImpl implements MemberDao {
 	public MemberVo login(HashMap<String, Object> map) {
 		
 		MemberVo memberVo= sqlSession.selectOne("Mem.Login",map);
+		System.out.println(memberVo);
 		
 		return memberVo;
 	}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Menu">
+  
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="menuMap" type="com.spring.menu.vo.MenuVo">
+       <result property="com_id"     column="COM_ID"     javaType="string" />
+       <result property="grp_id"     column="GRP_ID"     javaType="string" />
+       <result property="com_val"     column="COM_VAL"     javaType="string" />
+       <result property="com_lvl"     column="COM_LVL"     javaType="string" />
+       <result property="parent_id"     column="PARENT_ID"     javaType="string" />
+       <!-- <result property="menu_id"     column="MENU_ID"     javaType="string" />         
+       <result property="menu_name"   column="MENU_NAME"   javaType="string" />         
+       <result property="menu_seq"    column="MENU_SEQ"    javaType="int" />         
+       <result property="menu_lvl"    column="MENU_LVL"    javaType="int" />
+       <result property="smenu_id"     column="SMENU_ID"     javaType="string" />         
+       <result property="smenu_name"   column="SMENU_NAME"   javaType="string" />         
+       <result property="smenu_seq"    column="SMENU_SEQ"    javaType="string" />         
+       <result property="smenu_lvl"    column="SMENU_LVL"    javaType="string" />
+       <result property="parent_id"    column="PARENT_ID"    javaType="string" />
+       <result property="p_id"        column="P_ID"        javaType="string" />
+       <result property="p_fname"     column="P_FNAME"     javaType="string" /> -->
+     </resultMap>
+      
+     <select id="getMainMenus"
+     		 statementType="CALLABLE"
+     		 resultType="com.spring.menu.vo.MenuVo">
+     		 
+     		 {
+     		 	CALL PKG_MENUS.PROC_SEL_MAINMENUS
+     		 	(
+     		 		#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = menuMap }
+     		 	)
+     		 }
+     		
+	 </select>
+	 
+	 <select id="getSubMenus"
+     		 statementType="CALLABLE"
+     		 resultType="com.spring.menu.vo.MenuVo">
+     		 
+     		 {
+     		 	CALL PKG_MENUS.PROC_SEL_SUBMENUS
+     		 	(
+     		 		#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = menuMap },
+     		 		#{ smenu_id, mode = IN, jdbcType = VARCHAR}
+     		 	)
+     		 }
+     		
+	 </select>
+   
+   
+  	 <select id="getMenu"
+     		 statementType="CALLABLE"
+     		 resultType="com.spring.menu.vo.MenuVo">
+     		 
+     		 {
+     		 	CALL PKG_MENUS.PROC_SEL_MENUS
+     		 	(
+     		 		#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = menuMap }
+     		 	)
+     		 }
+     		
+	 </select>
+</mapper>        
+

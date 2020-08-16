@@ -25,7 +25,7 @@ a { text-decoration:none }
 </script>
 </head>
 <body>
-	<h1>Community</h1>
+	<h1>Community</h1><p>${login.m_id}</p>
 	<table colspan="1" border="1px solid black;">
 		<tr>
 			<td><a href="/PDS/List?com_id=COM0025">공지사항</a></td>

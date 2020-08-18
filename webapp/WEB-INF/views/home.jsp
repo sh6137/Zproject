@@ -38,18 +38,5 @@
 			<p>©자바웹개발과정 프로젝트 1조 : 이영효, 손문배, 손형호, 최은영, 최상훈</p>
 		</div>
 	</footer>
-
-
-
-	<%-- 
-	
-   	<div><a href="/INFO/SerInfo?m_id=${login.m_id }">My Info:first page</a></div>
-	<div><a href="/RES/ResInfo?m_id=${login.m_id }">My Reservation</a></div>
-	<div><a href="/RES/ResListForm?m_id=${login.m_id }">이전예약</a></div>
-	
-	<div><a href="/PDS/home">공지사항</a></div>
-   
->>>>>>> 은영
---%>
 </body>
 </html>

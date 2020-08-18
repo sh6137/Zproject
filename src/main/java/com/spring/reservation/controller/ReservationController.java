@@ -5,12 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 import com.spring.reservation.service.ReservationService;
 import com.spring.reservation.vo.ReservationVo;
 
@@ -21,9 +22,19 @@ public class ReservationController {
 	@Autowired
 	ReservationService reservationService;
 	
+	@Autowired
+	private MenuService menuService;
+	
 	@RequestMapping("/Res")
-	public String resHome() {
-		return "reservation/reshome";
+	public ModelAndView resHome() {
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("menuList", menuList);
+		mv.setViewName("reservation/reshome");
+		return mv;
 
 	}
 	

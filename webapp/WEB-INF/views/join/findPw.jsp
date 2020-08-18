@@ -14,6 +14,42 @@
 </head>
 <body>
 	
+	<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="/img/1.gif" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body" style="height: 700px; padding-top: 28%; padding-left: 25%;">
+              <p class="login-card-description">아이디 찾기</p>
+              <form action="/ChangePw" method="POST"> 
+            	<input type="hidden" name="m_id" value="${findpw.m_id}">
+				<input type="hidden" name="m_name" value="${findpw.m_name}">
+				<input type="hidden" name="tel" value="${findpw.tel}">
+				<input type="hidden" name="email" value="${findpw.email}">
+                  <div class="form-group">
+                  	<p>현재 비밀번호</p>
+                    <input type="password" class="form-control" value="${findpw.m_pw}" required="required"/>
+                  </div>
+                  <div class="form-group">
+                  	<p>새 비밀번호 지정</p>
+                    <input type="password" name="m_pw" class="form-control" placeholder="새비밀번호" required="required"/>
+                  </div>
+                  
+                  <input class="btn btn-block login-btn mb-4" type="submit" value="비밀번호 변경">
+                  
+                </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+	
+	<!-- 
 	<form action="/ChangePw" method="POST">
 	
 	<input type="hidden" name="m_id" value="${findpw.m_id}">
@@ -31,5 +67,6 @@
 	<input type="submit" value="비밀번호 변경" />
 	
 	</form>
+	 -->
 </body>
 </html>

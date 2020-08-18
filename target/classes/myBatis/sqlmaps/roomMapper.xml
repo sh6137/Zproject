@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Room">
+  
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="roomMap" type="com.spring.room.vo.RoomVo">    
+       <result property="r_id"   column="R_ID"   javaType="string" />        
+       <result property="r_name"   column="R_NAME"   javaType="string" />        
+       <result property="r_style"   column="R_STYLE"   javaType="string" />        
+       <result property="r_size"   column="R_SIZE"   javaType="string" />        
+       <result property="max_cap"   column="MAX_CAP"   javaType="int" />        
+       <result property="r_avail"   column="R_AVAIL"   javaType="string" />        
+       <result property="com_val"   column="COM_VAL"   javaType="string" />        
+       <result property="r_price"   column="R_PRICE"   javaType="string" />        
+       <result property="f_idx"   column="F_IDX"       javaType="int" />        
+       <result property="f_name"   column="F_NAME"     javaType="string" />        
+     </resultMap>
+      
+     <select id="GetRoom"
+     		 statementType="CALLABLE"
+     		 parameterType="hashmap"
+     		 resultType="com.spring.room.vo.RoomVo">
+     		 
+    	{
+    		CALL PKG_ROOM.PROC_ROOM_GETROOM
+    		(
+    			#{ r_id, mode = IN, jdbcType = VARCHAR },
+    			#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = roomMap }
+    		)    		
+    	}		 
+	 </select>
+	 
+	 <select id="GetRoomList"
+     		 statementType="CALLABLE"
+     		 parameterType="hashmap"
+     		 resultType="com.spring.room.vo.RoomVo">
+     		 
+    	{
+    		CALL PKG_ROOM.PROC_SEL_ROOMLIST
+    		(
+    			#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = roomMap }
+    		)    		
+    	}		 
+	 </select>
+	 
+	 <select id="GetRoomDetail"
+     		 statementType="CALLABLE"
+     		 parameterType="hashmap"
+     		 resultType="com.spring.room.vo.RoomVo">
+     		 
+    	{
+    		CALL PKG_ROOM.PROC_SEL_RFILES
+    		(
+    			#{ r_id  , mode = IN , jdbcType = VARCHAR },
+    			#{ result, mode = OUT, jdbcType = CURSOR, javaType = ResultSet, resultMap = roomMap }
+    		)    		
+    	}		 
+	 </select>
+   
+</mapper>        
+

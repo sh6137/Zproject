@@ -13,8 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.info.service.InfoService;
 import com.spring.info.vo.InfoVO;
-import com.spring.menu.service.MenuService;
-import com.spring.menu.vo.MenuVO;
 import com.spring.res.service.ResService;
 import com.spring.res.vo.ResVO;
 
@@ -23,8 +21,6 @@ public class InfoController {
 
 	@Autowired
 	InfoService infoService;
-	@Autowired
-	MenuService menuService;
 	@Autowired
 	ResService resService;
 	/*

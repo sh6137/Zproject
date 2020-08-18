@@ -45,7 +45,7 @@
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0013'}">
 										<c:if test="${main.com_id eq sub.parent_id}">
-												<a class="dropdown-item" href="/${ main.com_val }/${ sub.com_id }">${ sub.com_val }</a>
+												<a class="dropdown-item" href="/INSRES/allResList">${ sub.com_val }</a>
 										</c:if>
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0014'}">
@@ -63,7 +63,6 @@
 						</li>
 					</c:if>  
 				</c:forEach>
-				<a class="nav-link" href="/Res" >예약페이지로</a>
 				<a class="nav-link" href="/logout" >로그아웃</a>
 			</ul>
 		</div>

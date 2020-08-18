@@ -29,13 +29,13 @@
 			<div class="bg-contnet">
 				<p
 					style="font-size: 1.5em; color: white; text-align: left; font-weight: bold; text-shadow: 0px 6px 5px black;">
-					싱그러운 바닷바람 가득한 오션뷰 맛집 더 Z 풀빌라를 찾아주셔서 감사합니다.</p>
+					싱그러운 바닷바람 가득한 `푸른 바다와 맑은 하늘`을 찾아주셔서 감사합니다.</p>
 			</div>
 		</div>
 	</div>
 	<footer>
 		<div class="foot" style="color: white; text-align:center;">
-			<p>©자바웹개발과정 프로젝트 2조 : 이영효, 손문배, 손형호, 최은영, 최상훈</p>
+			<p>©자바웹개발과정 프로젝트 1조 : 이영효, 손문배, 손형호, 최은영, 최상훈</p>
 		</div>
 	</footer>
 

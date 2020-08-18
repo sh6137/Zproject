@@ -63,6 +63,8 @@
 						</li>
 					</c:if>  
 				</c:forEach>
+				<a class="nav-link" href="/Res" >예약페이지로</a>
+				<a class="nav-link" href="/logout" >로그아웃</a>
 			</ul>
 		</div>
 	</nav>

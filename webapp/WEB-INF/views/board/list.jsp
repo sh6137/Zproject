@@ -58,15 +58,15 @@ a { text-decoration:none }
    <table colspan="1" border="1px solid black;" id="boardmenu" >
    
       <tr class="nav">
-         <td width="300px;"><a href="/PDS/List?com_id=COM0025">공지사항</a></td>
-         <td width="300px;"><a href="/PDS/List?com_id=COM0026">문의</a></td>
-         <td width="300px;"><a href="/PDS/List?com_id=COM0027">QnA</a></td>
+         <td width="300px;"><a href="/PDS/List?com_id=COM0023">공지사항</a></td>
+         <td width="300px;"><a href="/PDS/List?com_id=COM0024">문의</a></td>
+         <td width="300px;"><a href="/PDS/List?com_id=COM0025">QnA</a></td>
       </tr>
     
    </table>
    <c:choose>
-      <c:when test="${com_id eq 'COM0025' }"><h1>공지사항</h1></c:when>
-      <c:when test="${com_id eq 'COM0026' }"><h1>문의</h1></c:when>
+      <c:when test="${com_id eq 'COM0023' }"><h1>공지사항</h1></c:when>
+      <c:when test="${com_id eq 'COM0024' }"><h1>문의</h1></c:when>
       <c:otherwise><h1>QnA</h1></c:otherwise>
    </c:choose>
    

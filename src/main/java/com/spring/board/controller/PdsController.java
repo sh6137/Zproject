@@ -41,10 +41,8 @@ public class PdsController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("com_id", map.get("com_id"));
-		 System.out.println("com_id 확인2:" + map.get("com_id"));
 		mv.addObject("pdsList", pdsList);
 		mv.setViewName("board/list");
-		System.out.println("list 확인2:" + pdsList);
 		return mv;
 	}
 
@@ -79,15 +77,14 @@ public class PdsController {
 	}
 	
 	@RequestMapping("/PDS/View")
-	public ModelAndView view(PdsVo pdsVo)  {
+	public ModelAndView view(@RequestParam HashMap<String,Object> map , HttpServletRequest reques)  {
 		
-		HashMap<String,Object> map = new HashMap<String, Object>();
-		map.put("b_idx",pdsVo.getB_idx());
-		List<PdsVo> voList = pdsService.getView(map);
-		System.out.println("있는가?" + map);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("pdsVo" , voList.get(0));
+		List<PdsVo> voList = pdsService.getView(map);
+	  	System.out.println("있는가?" + map.get("com_id"));
 		
+		mv.addObject("pdsVo" , voList.get(0));
+		mv.addObject("com_id", map.get("com_id"));
 		
 		System.out.println("받아오는값?" + voList.get(0));
 		mv.setViewName("board/content");
@@ -118,7 +115,7 @@ public class PdsController {
 		System.out.println("수정:" + pdsVo.get(0));
 		ModelAndView mv = new ModelAndView();
 		
-		map.put("m_id", "mmmmm"); // 임시로 session 받아오기
+		map.put("m_id", "login.m_id"); // 임시로 session 받아오기
 		
 		mv.setViewName("board/update");
 		mv.addObject("pdsVo" , pdsVo.get(0));

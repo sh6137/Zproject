@@ -92,16 +92,16 @@ $(function(){
 
 <body>
 <div style = "margin:10px">
-<h1> 선택객실 정보</h1>
+<h3> 선택객실 정보</h3>
 <table  style = "width:80%" class="table table-hover"  >
-<tr>
+<tr class='table-active'>
 <td style = "font-size:20px;">사진</td>
 <td style = "font-size:20px;">객실정보</td>
 <td style = "font-size:20px;">이용일</td>
 </tr>
 
 <tr>
-<td><img src='/img/${map.r_id}.jpg'></td>
+<td><img src='/img/${map.r_id}.jpg' width='200px'height='120px'></td>
 <td style = "font-size:20px;"><span class="badge badge-info" style = "font-size:15px;">${map.status}</span><br/>
 ${map.r_name} 
 

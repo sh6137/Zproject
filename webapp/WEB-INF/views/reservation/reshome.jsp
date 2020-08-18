@@ -32,7 +32,7 @@
 				  
 				   strHTML += "<form action = 'Res/Detail' method = 'GET'>";
 				   strHTML += "<table class='table table-hover'  style = 'font-size:20px; text-align:center' >";
-				   strHTML += "<tr>";
+				   strHTML += "<tr class='table-active' >";
 				   
 	                strHTML += "<td style='width:80px'> 선택 </td>";
 	                strHTML += "<td> 사진 </td>";
@@ -53,7 +53,7 @@
                     if( item.status == '예약완료')   {
                     	strHTML += "<tr>";
                     	strHTML += "<td style='width:80px;'><input type='checkbox' name='room_checkBox'   class='form-check-input' disabled></td>";
-                      	strHTML += "<td><img src='/img/"+item.r_id+".jpg'></td>";
+                      	strHTML += "<td><img src='/img/"+item.r_id+".jpg' width='200px'height='120px'></td>";
     	                strHTML += "<td>" + item.r_idx + "</td>";
     	           
     	                strHTML += "<td>" + item.r_name + "</td>";
@@ -75,7 +75,7 @@
                     else if ( item.status == '예약가능'  )  {
                     	strHTML += "<tr>";
                      	strHTML += "<td align='center'><input type='checkbox' name='room_CheckBox'  class='form-check-input' ></td>";//0
-                      	strHTML += "<td style='width:300px;'><img src='/img/"+item.r_id+".jpg'></td>";//1
+                      	strHTML += "<td style='width:300px;'><img src='/img/"+item.r_id+".jpg' width='200px'height='120px'></td>";//1
     	                strHTML += "<td>" + item.r_idx + "</td>";//2
     	             
     	                strHTML += "<td>" + item.r_name + "</td>";//3
@@ -167,8 +167,7 @@
 	          			});
 	          			
 	          			console.log(tdArr);
-	          			$("#div2").html(" * 체크된 Row의 모든 데이터 = "+rowData);	
-	          			$("#div2").html(tdArr);	
+	          		
 	          			location.href = "/Res/Detail?r_idx="+tdArr[0]+"&r_name="+tdArr[1]+"&r_price="+tdArr[3]+
 	          					"&max_cap="+tdArr[2]+"&startdate="+tdArr[4]+"&status="+tdArr[5]+"&r_id="+tdArr[6]+"";
 	          			
@@ -210,7 +209,7 @@
 <body>
 
 
-<h1> 입실일자를 선택해주세요</h1> 
+<h2> 객실&요금 조회 </h2> 
 <input type="text" id="startdate" name= "startdate" class="form-control-plaintext" placeholder="여기를 클릭해주세요" style = " display: inline-block;width:300px;border:1px solid black;"><input type  ="button"   class='btn btn-primary' id = "btn1" value ="조회">
 
 

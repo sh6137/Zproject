@@ -9,6 +9,10 @@ public interface ReservationService {
 
 	List<ReservationVo> roomList(HashMap<String, Object> map);
 
+	void makeRes(HashMap<String, Object> map);
+
+	
+
 	
 
 }

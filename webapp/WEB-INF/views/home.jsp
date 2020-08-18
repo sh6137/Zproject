@@ -35,20 +35,13 @@
 	</div>
 	<footer>
 		<div class="foot" style="color: white; text-align:center;">
-			<p>©자바웹개발과정 프로젝트 2조 : 이름작성~</p>
+			<p>©자바웹개발과정 프로젝트 2조 : 이영효, 손문배, 손형호, 최은영, 최상훈</p>
 		</div>
 	</footer>
 
 
 
-	<%-- 	
-<<<<<<< HEAD
-	<h1> 안녕하세요 메인페이지 홈</h1>
-	<h3>${login.m_id }</h3>
-	<h3>${login.m_pw}</h3>
-	<a href = "/Res"> 예약페이지로 </a>
-	 <a href="/logout">로그아웃</a>
-=======
+	<%-- 
 	
    	<div><a href="/INFO/SerInfo?m_id=${login.m_id }">My Info:first page</a></div>
 	<div><a href="/RES/ResInfo?m_id=${login.m_id }">My Reservation</a></div>

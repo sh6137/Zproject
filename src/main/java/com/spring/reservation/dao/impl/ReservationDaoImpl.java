@@ -25,4 +25,12 @@ public class ReservationDaoImpl implements ReservationDao {
 		return roomList;
 	}
 
+
+	@Override
+	public void makeRes(HashMap<String, Object> map) {
+	
+		sqlSession.selectOne("RES.MakeRes", map);
+		
+	}
+
 }

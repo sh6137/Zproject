@@ -32,7 +32,25 @@
 		)}
 
 	</select>
-
+	
+	<select id ="MakeRes" statementType="CALLABLE"
+		parameterType="hashmap">
+		{CALL PKG_RES.PROC_MAKE_RES(
+		
+		#{m_id , mode=IN ,jdbcType = VARCHAR},
+		#{r_id , mode=IN ,jdbcType = VARCHAR},
+		#{book_name , mode=IN ,jdbcType = VARCHAR},
+		#{book_tel , mode=IN ,jdbcType = VARCHAR},
+		#{book_email , mode=IN ,jdbcType = VARCHAR},
+		#{start_date , mode=IN ,jdbcType=DATE},
+		#{peri , mode=IN ,jdbcType=INTEGER},
+		#{total , mode=IN ,jdbcType=INTEGER} 
+		
+		
+		
+		)}
+		
+		</select>
 
 
 </mapper>

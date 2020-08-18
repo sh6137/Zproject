@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.menu.dao.MenuDao;
 import com.spring.menu.service.MenuService;
-import com.spring.menu.vo.MenuVO;
+import com.spring.menu.vo.MenuVo;
 
 @Service("menuService")
 public class MenuServiceImpl implements MenuService {
@@ -17,12 +17,20 @@ public class MenuServiceImpl implements MenuService {
 	private MenuDao menuDao;
 
 	@Override
-	public List<MenuVO> getList(HashMap<String, Object> map) {
-		
-		List<MenuVO> getList = menuDao.getList(map);
-		
-		return getList;
+	public List<MenuVo> getMainMenu(HashMap<String, Object> map) {
+		List<MenuVo> mainMenu = menuDao.getMainMenu(map);
+		return mainMenu;
 	}
 
-	
+	@Override
+	public List<MenuVo> getSubMenu(HashMap<String, Object> map2) {
+		List<MenuVo> subMenu = menuDao.getSubMenu(map2);
+		return subMenu;
+	}
+
+	@Override
+	public List<MenuVo> getMenu(HashMap<String, Object> map) {
+		List<MenuVo> menuList = menuDao.getMenu(map);
+		return menuList;
+	}
 }

@@ -13,12 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.board.service.PdsService;
 import com.spring.board.vo.PdsVo;
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 
 @Controller
 public class PdsController {
 
 	@Autowired
 	private PdsService pdsService;
+	
+	@Autowired
+	private MenuService menuService;
 
 	
 	
@@ -34,14 +39,18 @@ public class PdsController {
 	public ModelAndView pdsList(@RequestParam HashMap<String, Object> map) {
 
 	//	System.out.println("list 확인1:" + map);
-		
-		
 		List<PdsVo> pdsList = pdsService.getPdsList(map);
 		
+		// menus
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
+		
+		System.out.println("pdsList: " + pdsList);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("com_id", map.get("com_id"));
 		mv.addObject("pdsList", pdsList);
+		mv.addObject("menuList", menuList);
 		mv.setViewName("board/list");
 		return mv;
 	}

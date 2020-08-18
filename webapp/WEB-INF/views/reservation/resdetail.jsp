@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" /> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
  <script> 
 
 
@@ -91,6 +91,8 @@ $(function(){
 </head>
 
 <body>
+
+<%@ include file="../../include/nav.jsp" %>
 <div style = "margin:10px">
 <h3> 선택객실 정보</h3>
 <table  style = "width:80%" class="table table-hover"  >

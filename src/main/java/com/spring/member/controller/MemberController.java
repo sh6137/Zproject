@@ -1,6 +1,7 @@
 package com.spring.member.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 
 
 @Controller
@@ -21,10 +24,18 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	MenuService menuService;
+	
 	@RequestMapping("/")
-	public String home() {
+	public ModelAndView home() {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map);
 		
-		return "home";
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("menuList", menuList);
+		mv.setViewName("home");
+		return mv;
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)

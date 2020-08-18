@@ -3,6 +3,8 @@ package com.spring.info.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -91,10 +93,11 @@ public class InfoController {
 	}
 
 	@RequestMapping("/INFO/DropInfo")
-	public ModelAndView deleteInfo(@RequestParam HashMap<String, Object> map) {
+	public ModelAndView deleteInfo(HttpSession session, @RequestParam HashMap<String, Object> map) {
 		System.out.println("/INFO/DropInfo의 map : " + map);
 		infoService.deleteInfo(map);
-
+		session.removeAttribute("login");
+		session.invalidate();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/");
 

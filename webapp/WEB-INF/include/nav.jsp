@@ -55,7 +55,15 @@
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0015'}">
 										<c:if test="${main.com_id eq sub.parent_id}">
+											<c:if test="${sub.com_id eq 'COM0026'}">
 												<a class="dropdown-item" href="/INFO/SerInfo?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
+											<c:if test="${sub.com_id eq 'COM0027'}">
+												<a class="dropdown-item" href="/RES/ResInfo?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
+											<c:if test="${sub.com_id eq 'COM0028'}">
+												<a class="dropdown-item" href="/RES/ResListForm?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
 										</c:if>
 									</c:if>
 								</c:forEach>

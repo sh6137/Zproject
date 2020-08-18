@@ -34,7 +34,11 @@
                     <input type="text" name="email" class="form-control" placeholder="이메일" required="required"/>
                   </div>
                   <input class="btn btn-block login-btn mb-4" type="submit" value="아이디찾기">
+                  
                 </form>
+              <form action="/FindPWFrom" method="POST">
+               		<input class="btn btn-block login-btn mb-4" type="submit" value="비밀번호 찾기">
+              </form>
             </div>
           </div>
         </div>

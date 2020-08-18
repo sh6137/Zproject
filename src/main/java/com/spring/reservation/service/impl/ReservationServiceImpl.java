@@ -24,4 +24,11 @@ public class ReservationServiceImpl implements ReservationService {
 		return roomList;
 	}
 
+
+	@Override
+	public void makeRes(HashMap<String, Object> map) {
+		reservationDao.makeRes(map);
+		
+	}
+
 }

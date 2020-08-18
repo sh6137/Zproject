@@ -56,12 +56,17 @@ public class ReservationController {
 
 	}
 	@RequestMapping("/Res/Confirm")
-	public ModelAndView confirm(@RequestParam HashMap<String,Object> map){
+	public ModelAndView book(@RequestParam HashMap<String,Object> map){
+		
+		reservationService.makeRes(map);
+		
+		
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("reservation/reshome");
-		mv.addObject("map",map);
+		mv.setViewName("redirect:/RES/ResInfo?m_id="+ map.get("m_id"));
 		
+		
+		System.out.println(map);
 		return mv;	
 	}
 	

@@ -3,6 +3,7 @@ package com.spring.board.vo;
 public class PdsVo {
 	private   int       b_idx;
 	private   int       b_row;
+	private   String    m_id;
 	private   String    title;
 	private   String    cont;
 	private   String    m_name;
@@ -86,13 +87,26 @@ public class PdsVo {
 	}
 	
 
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
 	@Override
 	public String toString() {
-		return "PdsVo [b_idx=" + b_idx + ", b_row=" + b_row + ", title=" + title + ", cont=" + cont + ", m_name="
-				+ m_name + ", regdate=" + regdate + ", readcount=" + readcount  + ", bnum="
-				+ bnum + ", lvl=" + lvl + ", step=" + step + ", nref=" + nref + "]";
+		return "PdsVo [b_idx=" + b_idx + ", b_row=" + b_row + ", m_id=" + m_id + ", title=" + title + ", cont=" + cont
+				+ ", m_name=" + m_name + ", regdate=" + regdate + ", readcount=" + readcount + ", bnum=" + bnum
+				+ ", lvl=" + lvl + ", step=" + step + ", nref=" + nref + ", getB_idx()=" + getB_idx() + ", getTitle()="
+				+ getTitle() + ", getCont()=" + getCont() + ", getM_name()=" + getM_name() + ", getRegdate()="
+				+ getRegdate() + ", getReadcount()=" + getReadcount() + ", getBnum()=" + getBnum() + ", getLvl()="
+				+ getLvl() + ", getStep()=" + getStep() + ", getNref()=" + getNref() + ", getB_row()=" + getB_row()
+				+ ", getM_id()=" + getM_id() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
-
+	
+	
+	
 	
 	
 	

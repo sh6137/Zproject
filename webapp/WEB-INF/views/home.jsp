@@ -20,6 +20,7 @@
 		<div class="bg-frame_img">
 			<img class="bg_img" src="/img/back.jpg">
 		</div>
+		<div class="blurBox"></div>
 		<div class="bg-frame_content">
 			<div class="bg-title">
 				<p

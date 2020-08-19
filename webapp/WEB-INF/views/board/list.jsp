@@ -20,32 +20,12 @@ a {
 	text-decoration: none
 }
 
-#boardmenu {
-	overflow: hidden;
-	text-align: center;
-	display: inline-block;
-	padding: 10px;
-	margin-bottom: 5px;
-	border: 1px solid #efefef;
-	font-size: 15px;
-	cursor: pointer;
-	width: 100%;
-	font-color: white;
-}
 
 #pdslist {
-	width: 80%;
-	height: 60%
+	min-width:800px;
+	overflow-x:auto;
 }
 
-/* .nav {
-  display: table-cell;
-  float: left;
-  width: 90%;
-  background:white;
-  color: #fff;
-  margin-right: 10px;
-} */
 .td {
 	
 }
@@ -90,16 +70,11 @@ a {
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp"%>
-   <!-- <table colspan="1" border="1px solid black;" id="boardmenu" >
-      <tr class="nav"> -->
       <div class="wrapTitle">
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0023">공지사항</a></div>
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0024">문의</a></div>
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0025">QnA</a></div>
       </div>
-   <!--    </tr>
-    
-   </table> -->
   <c:choose>
       <c:when test="${com_id eq 'COM0023' }"><h1>공지사항</h1></c:when>
       <c:when test="${com_id eq 'COM0024' }"><h1>문의</h1></c:when>
@@ -108,11 +83,11 @@ a {
    
    <!--  메뉴 -->
    
-    <table id="pdslist" border="1px solid black;">
+   <table id="pdslist" border="1px solid black;">
    <thead>
    <tr>
      <td>번호</td> 
-     <td style="width:200px">제목</td> 
+     <td>제목</td> 
      <td>작성자</td> 
      <td>조회수</td> 
      <td>작성일</td> 
@@ -122,7 +97,7 @@ a {
     <c:forEach var="pdsVo" items="${ pdsList }" >
      <tr>
       <td>${ pdsVo.b_row }</td>
-       <td><a href="/PDS/View?b_idx=${pdsVo.b_idx}&b_row=${pdsVo.b_row}&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&com_id=${ com_id }&m_id=${ login.m_id }" >${pdsVo.title}</a></td>
+      <td><a href="/PDS/View?b_idx=${pdsVo.b_idx}&b_row=${pdsVo.b_row}&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&com_id=${ com_id }&m_id=${ login.m_id }" >${pdsVo.title}</a></td>
       <td>${ pdsVo.m_id }</td>
       <td>${ pdsVo.readcount }</td>
       <td>${ pdsVo.regdate }</td>
@@ -137,8 +112,10 @@ a {
 	     	<c:if test="${ login.m_id eq 'KSJ' }" > <!-- 관리자명 적을것 -->
  		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
 		    </c:if>
-		    <c:if test="${ com_id eq 'COM0024' }" > <!-- 관리자명 적을것 -->
+		    <c:if test="${ com_id eq 'COM0024' }" >
+				<c:if test="${login.m_id ne 'KSJ' }" >
  		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+ 		    	</c:if>
 		    </c:if>
 		</div>
 		<div colspan="2">

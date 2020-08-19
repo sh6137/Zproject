@@ -6,15 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" type="text/css" href="/css/common.css" />
 <style>
-
+	.h1{align:center;}
+	.td{	width: 100%;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #F2F2F2;}
 </style>
 </head>
 <body>
-   <h1>Content</h1>
+    <c:choose>
+      <c:when test="${com_id eq 'COM0023' }"><h1>공지사항</h1></c:when>
+      <c:when test="${com_id eq 'COM0024' }"><h1>문의</h1></c:when>
+      <c:otherwise><h1>QnA</h1></c:otherwise>
+   </c:choose>
    
-   <table border="1px solid black;" style ="width :80%;">
+   <table border="0px solid black;" style ="width :80%;">
      <tr>
        <th>작성자</th>
        <td>${ pdsVo.m_id }</td>

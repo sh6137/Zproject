@@ -34,14 +34,13 @@
 									<input type="password" name="m_pw" class="form-control"
 										placeholder="***********">
 								</div>
+								<font color="red">${message}</font><br>
+								
 								<input name="login" id="login"
 									class="btn btn-block login-btn mb-4" type="submit"
 									value="Login">
 							</form>
-							
-							<c:if test="${logine.lvl == String.valueOf(2)}">
-								<div style="color: red">아이디 또는 비밀번호가 일치하지 않습니다.</div>
-							</c:if>
+						
 							<a href="/FindIDForm" class="forgot-password-link">비밀번호를 잊으셨나요?</a>
 							<p class="login-card-footer-text">
 								아직 회원이 아니신가요?&nbsp;&nbsp;<a href="/JoinForm"

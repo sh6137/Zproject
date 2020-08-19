@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +47,7 @@ public class MemberController {
    //로그인
    @RequestMapping(value="/loginProcess", method=RequestMethod.POST)
    public String loginProcess(
-         HttpSession session,
+         HttpSession session, Model model,
          @RequestParam HashMap<String, Object>map) {
             
       String   returnURL ="";
@@ -59,7 +60,8 @@ public class MemberController {
          returnURL ="redirect:/";
          
       }else {
-         returnURL = "redirect:/login";
+    	 model.addAttribute("message", "아이디나 비밀번호가 틀렸습니다.");
+         returnURL = "login/loginForm";
       }
       return returnURL;
       

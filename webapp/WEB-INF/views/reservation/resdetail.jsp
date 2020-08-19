@@ -187,26 +187,27 @@ for(i=2;i<= ${map.max_cap}; i++){
 
 
 
-		<div style="width: 40%; float: left;">
+		<div style=" margin: 10px; width: 45%; float: left;">
 			<div>
-			결제안내 <br>
-				모든 결제는 무통장입금 으로만 가능합니다.
-				<hr style="border: solid 1px black; width: 50%; text-align: left; margin-left: 0">
-				
-				<ul>
-				<li>신한은행 : 1234505*-151512-12</li>
-				<li>신한은행 : 1234505*-151512-12</li>
-				<li>신한은행 : 1234505*-151512-12</li>
-				<li>신한은행 : 1234505*-151512-12</li>
-				<li>신한은행 : 1234505*-151512-12</li>
+			<h4>결제안내</h4> 
+				<hr style="border: solid 1px #b37700; width: 70%; text-align: left; margin-left: 0">
+				<h5>모든 결제는 무통장입금 으로만 가능합니다.</h5>
+				<br>
+				<ul >
+				<li>신한은행   : 110-482-114458</li>
+				<li>농협은행   : 815-1258-7315-14</li>
+				<li>우리은행   : 4158-357-152345</li>
+				<li>카카오뱅크 : 4321-15-7258925</li>
+				<li>하나은행   : 147-146284-13469</li>
 				</ul>
-				
+				입금자명은 예약자명과 동일해야 합니다.<br>
+				입금자명과 예약자명이 다른 경우 010-1248-1592로 연락바랍니다. 
 				</table>
 			</div>
 			
 			<div style="padding:50px 0 0 0;">
-			예약안내
-				<hr style="border: solid 1px black; width: 50%; text-align: left; margin-left: 0">
+			<h4>예약안내</h4>
+				<hr style="border: solid 1px #b37700; width: 70%; text-align: left; margin-left: 0">
 			<ul>
 		<li>
 		체크인/아웃 안내 체크인:15:00, 체크아웃:11:00
@@ -219,16 +220,16 @@ for(i=2;i<= ${map.max_cap}; i++){
 			</div>
 			<div style="padding:50px 0 0 0;">
 
-				예약취소 규정안내
-				<hr style="border: solid 1px black; width: 50%; text-align: left; margin-left: 0">
-				<table border="1px">
-					<tr>
+				<h4>예약취소 규정안내</h4>
+				<hr style="border: solid 1px #b37700; width: 70%; text-align: left; margin-left: 0">
+				<table class="table table-hover">
+					<tr class="table-active">
 						<td>숙박 7일전 취소</td>
 						<td>숙박 6일 ~ 2일전 취소</td>
 						<td>숙박 1일전 18:00이전 취소</td>
 						<td>숙박 1일전 18:00이후 취소 및 NO SHOW</td>
 					</tr>
-					<tr>
+					<tr class="table-light">
 						<td>취소 수수료 없음</td>
 						<td>객실 요금의 20% 부과</td>
 						<td>객실 요금의 50% 부과</td>

@@ -5,72 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/room.css">
 <title>객실정보</title>
-<style>
-	body{
-	margin: 0 auto;
-	padding: 0;
-	}
-	.wrapRoomName {
-		width: 100%;
-		margin-bottom: 50px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		background-color: #F2F2F2;
-	}
-	
-	.roomName {
-		width: 100px;
-		height: 40px;
-		text-align : center;
-		line-height: 40px;
-	}
-	
-	.roomName .roomNameColor{
-		color: #848484;
-		text-decoration: none;
-	}
-	
-	.picTitle {
-		text-align: center;
-	}
-	
-	.rImages {
-		margin: 0 auto;
-		margin-bottom: 50px;
-		width: 40%;
-		height: 350px;
-		/* border: 1px dashed black; */
-	}	
-
-	.rTable {
-		margin: 0 auto;
-		/* margin-bottom: 10px; */
-		width: 80%;
-		height: 140px;
-		/* border: 1px dashed black; */
-	}
-	
-	.roomDescription, .seasonPrice {
-		border-collapse: collapse;
-		border : 2px solid gray;
-		width: 100%;
-		text-align: center;
-		font-size: 16px;
-	}
-	
-	td.tableTitle{
-		background-color : #F2F2F2;
-	}
-	
-	tr, td{
-		border : 1px solid #7C7C7D;
-		width: 100px;
-		height : 50px;
-	}
-
-</style>
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp" %>
@@ -84,6 +20,12 @@
 		</c:forEach>
 	</div>
 	
+	<!-- bg -->
+	<div class="bg">
+		<img class="bg-img" src="/img/room_bg.jpg">
+	</div>
+	
+	<div class="wrapContent">
 	<!-- room images -->
 	<div id="carouselExampleIndicators" class="carousel slide rImages"
 		data-ride="carousel">
@@ -97,13 +39,13 @@
 		<!-- 객실 정보에 따라 이미지가 다름 -->
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="${ rDetail.get(0).f_name }"class="d-block w-100" width="100%" height="350px">
+				<img class="img-size" src="${ rDetail.get(0).f_name }"class="d-block w-100" width="100%" height="350px">
 			</div>
 			<div class="carousel-item">
-				<img src="${ rDetail.get(1).f_name }" class="d-block w-100" width="100%" height="350px">
+				<img class="img-size" src="${ rDetail.get(1).f_name }" class="d-block w-100" width="100%" height="350px">
 			</div>
 			<div class="carousel-item">
-				<img src="${ rDetail.get(2).f_name }" class="d-block w-100" width="100%" height="350px">
+				<img class="img-size" src="${ rDetail.get(2).f_name }" class="d-block w-100" width="100%" height="350px">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleIndicators"
@@ -130,11 +72,11 @@
 			<tr>
 				<c:forEach var="room" items="${roomList}">
 				<c:if test="${rDetail.get(0).r_id eq room.r_id}">
-					<td>${room.r_id}</td>
-					<td>${room.r_name}</td>
-					<td>${room.r_style}</td>
-					<td>${room.r_size}평</td>
-					<td>${room.max_cap}</td>
+					<td class="tableTitle">${room.r_id}</td>
+					<td class="tableTitle">${room.r_name}</td>
+					<td class="tableTitle">${room.r_style}</td>
+					<td class="tableTitle">${room.r_size}</td>
+					<td class="tableTitle">${room.max_cap}</td>
 				</c:if>
 				</c:forEach>
 			</tr>
@@ -159,10 +101,11 @@
 			</tr>
 			<tr>
 				<c:forEach var="rPrice" items="${ room }">
-					<td>${ rPrice.r_price }원</td>
+					<td class="tableTitle">${ rPrice.r_price }원</td>
 				</c:forEach>
 			</tr>
 		</table>
+	</div>
 	</div>
 </body>
 </html>

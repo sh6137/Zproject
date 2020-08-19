@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="/css/fac.css">
+<title>부대시설</title>
 <style>
 	.aName{
 		width: 100%;
-		margin-bottom: 50px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
@@ -43,6 +43,23 @@
 	</div>
 	
 	<!-- 부대시설 -->
-	
+	<!-- 인사말 -->
+	<div class="bg-frame">
+		<div class="bg-div">
+			<img class="bg" src="/img/fac_1.jpeg" style="width: 100%;"/>
+		</div>
+		<div class="cover"></div>
+		<div class="content">
+			<div class="content-title">야외 바베큐,</div>
+			<div class="content-p">
+				숯향 가득한 바베큐 파티를 즐겨보세요.<br>
+				아득아득하게 떨어지는 해와 노을지는 바다 풍경과 함께 하루의 마무리로.<br>
+		        객실 마다 즐길 수 있는 바베큐장이 마련되어 있습니다.<br>
+			</div>
+		</div>
+		<div class="content_img">
+			<img class="bbq" src="/img/fac_bbq_1.jpeg" style="width: 100%; height: 100%;" />
+		</div>
+	</div>
 </body>
 </html>

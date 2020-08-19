@@ -13,76 +13,48 @@
 <link rel="stylesheet" href="/css/login.css"/>
 </head>
 <body>
-	<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-		<div class="container">
-			<div class="card login-card">
-				<div class="row no-gutters">
-					<div class="col-md-5">
-						<img src="/img/1.gif" alt="login" class="login-card-img">
-					</div>
-					<div class="col-md-7">
-						<div class="card-body" style="height: 700px; padding-top: 20%; padding-left: 25%;">
-							<p class="login-card-description">JOIN US</p>
-							<form action="/Join/Join" method="POST">
-								<div class="form-group">
-									<input type="text" name="m_id" class="form-control"
-										placeholder="ID" required="required" />
-								</div>
-								<div class="form-group">
-									<input type="text" name="m_name" class="form-control"
-										placeholder="이름" required="required" />
-								</div>
-								<div class="form-group">
-									<input type="password" name="m_pw" class="form-control"
-										placeholder="비밀번호" required="required">
-								</div>
-								<div class="form-group">
-									<input type="text" name="tel" class="form-control"
-										placeholder="전화번호" required="required" />
-								</div>
-								<div class="form-group">
-									<input type="text" name="email" class="form-control"
-										placeholder="이메일" required="required" />
-								</div>
-								<input type="hidden" name="lvl" value="1" /> <input
-									class="btn btn-block login-btn mb-4" type="submit" value="가입하기">
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
-
-	<!-- <form action="/Join/Join" method="POST">
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="m_id" /></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="m_name" /></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="text" name="m_pw" /></td>
-			</tr>
-			<tr>
-				<td>전화번호</td>
-				<td><input type="text" name="tel" /></td>
-			</tr>
-			<tr>
-				<td>이메일</td>
-				<td><input type="text" name="email" /></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit" value="가입하기" />
-				</td>
-			</tr>
-		</table>
-		<input type="hidden" name="lvl" value="1" />
-	</form> -->
+   <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+      <div class="container">
+         <div class="card login-card">
+            <div class="row no-gutters">
+               <div class="col-md-5">
+                  <img src="/img/1.gif" alt="login" class="login-card-img">
+               </div>
+               <div class="col-md-7">
+                  <div class="card-body" style="height: 700px; padding: 28% 25% 20% 25%;">
+                     <p class="login-card-description">LOGIN</p>
+                     <form action="/loginProcess" method="POST">
+                        <div class="form-group">
+                           <input type="text" name="m_id" class="form-control"
+                              placeholder="ID를 입력하세요." />
+                        </div>
+                        <div class="form-group mb-4">
+                           <input type="password" name="m_pw" class="form-control"
+                              placeholder="***********">
+                        </div>
+                        <input name="login" id="login"
+                           class="btn btn-block login-btn mb-4" type="submit"
+                           value="Login">
+                     </form>
+                     <a href="/FindIDForm" class="forgot-password-link">비밀번호를 잊으셨나요?</a>
+                     <p class="login-card-footer-text">
+                        아직 회원이 아니신가요?&nbsp;&nbsp;<a href="/JoinForm"
+                           class="text-reset">여기서 가입하세요!</a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+   <!--    <h1>로그인</h1>
+   <form action="/loginProcess" method="POST">
+      <div><input type="text" name="m_id" placeholder="아이디 입력"></div>
+      <div><input type="password" name="m_pw" placeholder="암호"></div>
+      <div><input type="submit" value="로그인"></div>
+      
+   </form>
+      <a href="/JoinForm">회원가입</a>
+      <a href="/FindIDForm">아이디 비밀번호 찾기</a> -->
 </body>
 </html>

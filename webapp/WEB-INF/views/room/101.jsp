@@ -13,7 +13,7 @@
 	}
 	.wrapRoomName {
 		width: 100%;
-		margin-bottom: 20px;
+		margin-bottom: 50px;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
@@ -38,7 +38,7 @@
 	
 	.rImages {
 		margin: 0 auto;
-		margin-bottom: 70px;
+		margin-bottom: 50px;
 		width: 40%;
 		height: 350px;
 		/* border: 1px dashed black; */

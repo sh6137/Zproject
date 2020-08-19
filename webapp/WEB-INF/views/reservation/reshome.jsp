@@ -208,7 +208,6 @@
 </head>
 <body>
 
-
 <h2> 객실&요금 조회 </h2> 
 <input type="text" id="startdate" name= "startdate" class="form-control-plaintext" placeholder="여기를 클릭해주세요" style = " display: inline-block;width:300px;border:1px solid black;"><input type  ="button"   class='btn btn-primary' id = "btn1" value ="조회">
 

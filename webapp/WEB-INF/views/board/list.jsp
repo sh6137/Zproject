@@ -7,38 +7,74 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
-<title>Insert title here</title>
-<style type="text/css"> 
-a { text-decoration:none } 
-#boardmenu{overflow: hidden; text-align :center;
- 		   display: inline-block;
-   		   padding: 10px;
-           margin-bottom: 5px;
-           border: 1px solid #efefef;
-           font-size: 15px;
-           cursor: pointer;
-           width: 100%;
-           font-color:white;
- 			 }
-#pdslist{  width:80%; height:60%}
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/> -->
+<title>Community</title>
+<style type="text/css">
+/* choi */
+body {
+	margin: 0 auto;
+	padding: 0;
+}
+/* end */
+a {
+	text-decoration: none
+}
 
-.nav {
+#boardmenu {
+	overflow: hidden;
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 5px;
+	border: 1px solid #efefef;
+	font-size: 15px;
+	cursor: pointer;
+	width: 100%;
+	font-color: white;
+}
+
+#pdslist {
+	width: 80%;
+	height: 60%
+}
+
+/* .nav {
   display: table-cell;
   float: left;
   width: 90%;
   background:white;
   color: #fff;
   margin-right: 10px;
+} */
+.td {
+	
 }
 
-.td {
+.wrapTitle {
+	width: 100%;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #F2F2F2;
+}
 
+.el {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
 
+.el-a {
+	color: #848484;
+	text-decoration: none;
 }
 </style> 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
 
 <script>
 
@@ -53,17 +89,18 @@ a { text-decoration:none }
 </script>
 </head>
 <body>
-   <h1>Community</h1>
-   <table colspan="1" border="1px solid black;" id="boardmenu" >
-   
-      <tr class="nav">
-         <td width="300px;"><a href="/PDS/List?com_id=COM0023">공지사항</a></td>
-         <td width="300px;"><a href="/PDS/List?com_id=COM0024">문의</a></td>
-         <td width="300px;"><a href="/PDS/List?com_id=COM0025">QnA</a></td>
-      </tr>
+	<%@ include file="../../include/nav.jsp"%>
+   <!-- <table colspan="1" border="1px solid black;" id="boardmenu" >
+      <tr class="nav"> -->
+      <div class="wrapTitle">
+         <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0023">공지사항</a></div>
+         <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0024">문의</a></div>
+         <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0025">QnA</a></div>
+      </div>
+   <!--    </tr>
     
-   </table>
-   <c:choose>
+   </table> -->
+  <c:choose>
       <c:when test="${com_id eq 'COM0023' }"><h1>공지사항</h1></c:when>
       <c:when test="${com_id eq 'COM0024' }"><h1>문의</h1></c:when>
       <c:otherwise><h1>QnA</h1></c:otherwise>
@@ -94,16 +131,21 @@ a { text-decoration:none }
     </tbody>
    </table>
  		
-     <c:if test="${pdsVo.com_id eq pdsVo.com_id}" >
+     
      <div>
      	<div colspan="2">
-     <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+	     	<c:if test="${ login.m_id eq 'KSJ' }" > <!-- 관리자명 적을것 -->
+ 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+		    </c:if>
+		    <c:if test="${ com_id eq 'COM0024' }" > <!-- 관리자명 적을것 -->
+ 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+		    </c:if>
 		</div>
 		<div colspan="2">
-	 <a href="/">Main</a>	     
+		 <a href="/">Main</a>	     
 		</div>
      </div> 
-     </c:if>
+   
 
   
      <input type="hidden"  name="b_idx"       value="${ pdsVo.b_idx }" />

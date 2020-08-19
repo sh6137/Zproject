@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <title>객실정보</title>
 <style>
+	body{
+	margin: 0 auto;
+	padding: 0;
+	}
 	.wrapRoomName {
 		width: 100%;
 		margin-bottom: 20px;

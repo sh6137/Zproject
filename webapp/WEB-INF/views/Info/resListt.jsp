@@ -112,6 +112,7 @@
 </script>
 </head>
 <body>
+ <%@ include file="../../include/nav.jsp" %>
 	<div>
 		<p>검색하실 날짜를 선택해주세요</p>
 		<input type="text" id="startdate" readonly="readonly"> ~ <input type="text" id="enddate" readonly="readonly">

@@ -1,6 +1,7 @@
 package com.spring.member.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.spring.member.vo.MemberVo;
 
@@ -15,5 +16,7 @@ public interface MemberService {
 	public MemberVo getFindPw(HashMap<String, Object> map);
 
 	public void setChangePw(HashMap<String, Object> map);
+
+	public String checkId(HashMap<String, Object> map);
 
 }

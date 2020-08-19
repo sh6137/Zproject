@@ -1,6 +1,7 @@
 package com.spring.member.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void setChangePw(HashMap<String, Object> map) {
 		memberDao.setChangePw(map);
+	}
+
+	@Override
+	public String checkId(HashMap<String, Object> map) {
+		String vo = memberDao.checkId(map);
+		return vo;
 	}
 
 }

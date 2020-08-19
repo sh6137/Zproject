@@ -137,7 +137,13 @@
 	          			var rowData = new Array();
 	          			var tdArr = new Array();
 	          			var checkbox = $("input[name=room_CheckBox]:checked");
-	          			
+	          			var chk =false;
+	          			for(var i=0 ; i<checkbox.length ; i++) { 
+	          				if(checkbox[i].checked) { chk = true; }
+	          				else { chk = false; } 
+	          				}
+
+	          			if(chk){
 	          			
 	          			checkbox.each(function(i) {
 
@@ -166,7 +172,10 @@
 	          				tdArr.push(r_id);//6
 		
 	          			});
-	          			
+	          			}
+	          			else { 
+	          				alert("원하는 객실을 선택해 주세요") 
+	          				return false;}
 	          			console.log(tdArr);
 	          		
 	          			location.href = "/Res/Detail?r_idx="+tdArr[0]+"&r_name="+tdArr[1]+"&r_price="+tdArr[3]+

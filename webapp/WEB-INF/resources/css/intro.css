@@ -30,6 +30,8 @@
 	z-index: -2;
 	max-width: 100%;
 	max-height: auto;
+	filter: blur(1px);
+    -webkit-filter: blur(1px);
 }
 
 .content {

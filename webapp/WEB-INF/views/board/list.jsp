@@ -94,16 +94,21 @@ a { text-decoration:none }
     </tbody>
    </table>
  		
-     <c:if test="${pdsVo.com_id eq pdsVo.com_id}" >
+     
      <div>
      	<div colspan="2">
-     <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+	     	<c:if test="${ login.m_id eq 'KSJ' }" > <!-- 관리자명 적을것 -->
+ 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+		    </c:if>
+		    <c:if test="${ com_id eq 'COM0024' }" > <!-- 관리자명 적을것 -->
+ 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+		    </c:if>
 		</div>
 		<div colspan="2">
-	 <a href="/">Main</a>	     
+		 <a href="/">Main</a>	     
 		</div>
      </div> 
-     </c:if>
+   
 
   
      <input type="hidden"  name="b_idx"       value="${ pdsVo.b_idx }" />

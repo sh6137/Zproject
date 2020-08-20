@@ -9,6 +9,7 @@
 <title>예약 리스트</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -162,11 +163,10 @@
 
 	<div>
 		<p>검색하실 날짜를 선택해주세요</p>
-		<input type="text" id="startdate" readonly="readonly"> ~ <input
-			type="text" id="enddate" readonly="readonly"> <input
-			type="button" value="검색" id="resList" />
+		<input type="text" id="startdate" readonly="readonly"> ~ <input type="text" id="enddate" readonly="readonly">
+		<input type="button" value="검색" id="resList" />
 	</div>
-	<table id="resList_TBL">
+	<table id="resList_TBL" class="table table-hover">
 		<tr id="title">
 			<th>순서</th>
 			<th>날짜</th>
@@ -175,29 +175,6 @@
 			<th>구분</th>
 			<th>금액</th>
 		</tr>
-		<!-- <div id="result">
-		</div> -->
-		<!-- 
-		<c:forEach var="resVO" items="${ resList }">
-			<c:choose>
-				<c:when test="${ resVO.rn eq 0 }">
-					<tr>
-						<td colspan="6">예약이 없습니다.</td>
-					</tr>
-				</c:when>
-				<c:otherwise>
-					<tr>
-						<td>${ resVO.rn }</td>
-						<td>${ resVO.start_date } ~ ${ resVO.end_date }</td>
-						<td>${ resVO.r_name }</td>
-						<td>${ resVO.book_name }</td>
-						<td>${ resVO.res_status_info }</td>
-						<td>${ resVO.r_price }</td>
-					</tr>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-		 -->
 	</table>
 	<input type="hidden" id="m_id" value="${ map.m_id }" />
 </body>

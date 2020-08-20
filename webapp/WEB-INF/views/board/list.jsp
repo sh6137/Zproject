@@ -9,6 +9,12 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/> -->
 <title>Community</title>
+<style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+</style>
 <style type="text/css">
 /* choi */
  #wrapbody {
@@ -22,9 +28,9 @@ a {
 }
 
 
-#pdslist {
-	min-width:800px;
-}
+ h1 {
+ 	padding: 0px 100px 0px 800px;
+ }
 
 .button {
 
@@ -98,7 +104,6 @@ a {
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp"%>
-    <div id="wrapbody">
       <div class="wrapTitle">
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0023">공지사항</a></div>
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0024">문의</a></div>
@@ -112,6 +117,7 @@ a {
    
    <!--  메뉴 -->
    
+    <div id="wrapbody">
    <table id="pdslist" border="1px solid black;">
    <thead>
    <tr>

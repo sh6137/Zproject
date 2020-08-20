@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/intro.css">
+</style>
 <title>인사말</title>
 </head>
 <body>

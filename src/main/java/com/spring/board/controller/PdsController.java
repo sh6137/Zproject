@@ -106,7 +106,9 @@ public class PdsController {
 		pdsService.setDelete(map);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/PDS/List"	);
+		mv.addObject("com_id", map.get("com_id"));
+		System.out.println(map);
+		mv.setViewName("redirect:/PDS/List");
 		return mv;
 	}
 
@@ -132,7 +134,6 @@ public class PdsController {
 			System.out.println("업데이트 1" + map);
 			pdsService.updatePds(map);
 			ModelAndView mv = new ModelAndView();
-			System.out.println("수정2:" + map);
 			mv.setViewName("redirect:/PDS/home");
 
 			return mv;

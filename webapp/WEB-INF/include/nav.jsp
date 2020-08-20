@@ -28,6 +28,7 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-md-around" id="navbarsExample10">
 			<ul class="navbar-nav">
+				<span class="nav-link" >${login.m_name}님 안녕하세요.&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a class="nav-link" href="/">MAIN&nbsp;&nbsp;</a>
 				<c:forEach var="main" items="${ menuList }">
 					<c:if test="${main.parent_id eq 'COM0010'}">

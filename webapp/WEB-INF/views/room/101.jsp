@@ -25,6 +25,8 @@
 		<img class="bg-img" src="/img/room_bg.jpg">
 	</div>
 	
+	<div class="blurBox"></div>
+	
 	<div class="wrapContent">
 	<!-- room images -->
 	<div id="carouselExampleIndicators" class="carousel slide rImages"
@@ -107,5 +109,6 @@
 		</table>
 	</div>
 	</div>
+	
 </body>
 </html>

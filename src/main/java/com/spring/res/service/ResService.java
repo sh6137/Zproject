@@ -13,5 +13,5 @@ public interface ResService {
 
 	List<ResVO> resList(HashMap<String, Object> map);
 
-
+	List<ResVO> mainResList(HashMap<String, Object> map);
 }

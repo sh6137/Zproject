@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+
 body {
 	margin: 0 auto;
 	padding: 0;
@@ -15,8 +20,6 @@ body {
 .bg_img{
  	max-width: 100%;
  	height: 100%;
- 	/* filter: blur(2px);
-    -webkit-filter: blur(2px); */
 }
 
 .blurBox{

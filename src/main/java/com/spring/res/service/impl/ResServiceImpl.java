@@ -36,6 +36,14 @@ public class ResServiceImpl implements ResService {
 		
 		return resList;
 	}
+	
+	@Override
+	public List<ResVO> mainResList(HashMap<String, Object> map) {
+		
+		List<ResVO> mainResList = resDao.mainResList(map);
+		
+		return mainResList;
+	}
 
 	
 }

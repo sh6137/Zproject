@@ -80,17 +80,17 @@ table.type09 td {
           <a href="/PDS/List?com_id=${ com_id }">리스트로</a>    
         <c:choose>
           <c:when test="${login.m_id eq pdsVo.m_id }" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}" id="deletePds" > 삭제 </a>
           </c:when>
           <c:when test="${login.m_name eq '관리자'}" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}" id="deletePds" > 삭제 </a>
           </c:when>
          </c:choose>
    			<c:if test="${com_id eq 'COM0024'}" >   
             <a  href="/PDS/WriteForm?bnum=${pdsVo.bnum}&com_id=COM0024&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&m_id=${login.m_id}&m_name=${pdsVo.m_name}">답글쓰기</a>
 			</c:if>
 		  <c:if test="${login.m_id eq pdsVo.m_id }" >  
-          <a href="/PDS/UpdateForm?b_idx=${pdsVo.b_idx}"> 수정 </a>
+          <a href="/PDS/UpdateForm?b_idx=${pdsVo.b_idx}&com_id=${com_id}"> 수정 </a>
           </c:if>
        </td>     
      </tr>

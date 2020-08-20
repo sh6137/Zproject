@@ -77,7 +77,8 @@ $( function() {
 	<!-- 수정할 자료 입력  -->
    <form  id="form1" action="/PDS/Update" method="POST" >   
    <input type="hidden"  name="b_idx" 		value="${ pdsVo.b_idx }" />
-   <input type="hidden"  name="m_id" 	    value="${login.m_id }" />			<!-- 아이디 받아오기  -->
+   <input type="hidden"  name="m_id" 	    value="${ login.m_id }" />			<!-- 아이디 받아오기  -->
+   <input type="hidden"  name="com_id" 	    value="${ com_id }" />		
    
    <table  style ="width :80%;" class="type09">
    <tr>
@@ -102,7 +103,7 @@ $( function() {
    
    <tr>
      <td  scope="row" colspan="4" width="80%">
-        <textarea name="cont" >${  pdsVo.cont  }</textarea>
+        <textarea name="cont"  rows="5" cols="60" >${  pdsVo.cont  }</textarea>
       </td>   
    </tr>    
    <tr>

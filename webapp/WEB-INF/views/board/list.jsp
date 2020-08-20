@@ -11,10 +11,10 @@
 <title>Community</title>
 <style type="text/css">
 /* choi */
-body {
+ #wrapbody {
 	width:95%;
 	margin: 0 auto;
-	padding: 0px 0px 0px 100px;
+	padding: 0px 100px 0px 100px;
 }
 /* end */
 a {
@@ -73,6 +73,7 @@ a {
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp"%>
+    <div id="wrapbody">
       <div class="wrapTitle">
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0023">공지사항</a></div>
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0024">문의</a></div>
@@ -132,6 +133,6 @@ a {
      <input type="hidden"  name="m_name"       value="${ pdsVo.m_name }" />
 
 
-
+</div>
 </body>
 </html>

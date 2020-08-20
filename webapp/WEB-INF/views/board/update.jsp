@@ -5,6 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+</style>
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="/css/common.css" />
 <style>

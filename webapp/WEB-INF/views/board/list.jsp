@@ -9,6 +9,12 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/> -->
 <title>Community</title>
+<style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+</style>
 <style type="text/css">
 /* choi */
  #wrapbody {

@@ -12,5 +12,8 @@ public interface ResDao {
 	void resCc(HashMap<String, Object> map);
 
 	List<ResVO> resList(HashMap<String, Object> map);
+	
+	List<ResVO> mainResList(HashMap<String, Object> map);
+
 
 }

@@ -26,9 +26,34 @@ a {
 	min-width:800px;
 }
 
-.td {
-	
+.button {
+
+    width:100px;
+
+    background-color: #F2F2F2;
+
+    border: none;
+
+    color:black;
+
+    padding: 5px 0;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 15px;
+
+    margin: 0px;
+
+    cursor: pointer;
+    
+    align : right;
+
 }
+
 
 .wrapTitle {
 	width: 100%;
@@ -114,14 +139,14 @@ a {
      <div>
      	<div colspan="2">
 	     	<c:if test="${ login.m_id eq 'KSJ' }" > <!-- 관리자명 적을것 -->
- 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+ 		    <a class="button"   href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
 		    </c:if>
 		    <c:if test="${ com_id eq 'COM0024' }" >
 				<c:if test="${login.m_id ne 'KSJ' }" >
- 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+ 		    <a class="button"  href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
  		    	</c:if>
 		    </c:if>
-		  <a href="/">Main</a>	   
+		  <a  class="button"  href="/">Main</a>	   
 		</div>
      </div> 
    

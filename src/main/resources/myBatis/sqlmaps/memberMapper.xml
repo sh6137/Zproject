@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mem">
   	
+  	<resultMap id="MemMap" type="com.spring.member.vo.MemberVo">
+		<result property="cnt" column="CNT" javaType="string" />
+	</resultMap>
+  	
+  	
   	<select id="Login" parameterType="hashmap" resultType="com.spring.member.vo.MemberVo">
         SELECT *
         	FROM MEM
@@ -56,6 +61,13 @@
 			
    	 
    	 </update>
+   	
+   	<select id="CheckId" statementType="CALLABLE" parameterType="hashmap" resultType="com.spring.member.vo.MemberVo">
+      {CALL PKG_MEM.PROC_IDCHECK (
+      #{m_id,mode=IN, jdbcType=VARCHAR},
+      #{result, mode=OUT, jdbcType=CURSOR, resultMap = MemMap}
+      )}
+     </select>
    	
 </mapper>        
 

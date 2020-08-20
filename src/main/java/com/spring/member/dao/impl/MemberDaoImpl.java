@@ -1,6 +1,7 @@
 package com.spring.member.dao.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,17 @@ public class MemberDaoImpl implements MemberDao {
 	public void setChangePw(HashMap<String, Object> map) {
 		sqlSession.update("Mem.ChangePw", map);
 		System.out.println("changepwdaoimpl : "+sqlSession.update("Mem.ChangePw", map));
+	}
+
+	@Override
+	public String checkId(HashMap<String, Object> map) {
+		sqlSession.selectOne("Mem.CheckId", map);
+		System.out.println(map);
+		List<MemberVo> vo2 = (List<MemberVo>) map.get("result");
+		System.out.println(vo2);
+		String vo = vo2.get(0).getCnt();
+		System.out.println(vo);
+		return vo;
 	}
 
 }

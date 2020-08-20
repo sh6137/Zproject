@@ -5,11 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- 게시판 데이터 테이블 버전 일치  -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
 <style>
 	.dropdown:hover .dropdown-menu {
 		display: block;
@@ -24,6 +28,7 @@
 		</button>
 		<div class="collapse navbar-collapse justify-content-md-around" id="navbarsExample10">
 			<ul class="navbar-nav">
+				<span class="nav-link" >${login.m_name}님 안녕하세요.&nbsp;&nbsp;&nbsp;&nbsp;</span>
 				<a class="nav-link" href="/">MAIN&nbsp;&nbsp;</a>
 				<c:forEach var="main" items="${ menuList }">
 					<c:if test="${main.parent_id eq 'COM0010'}">
@@ -55,7 +60,15 @@
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0015'}">
 										<c:if test="${main.com_id eq sub.parent_id}">
+											<c:if test="${sub.com_id eq 'COM0026'}">
 												<a class="dropdown-item" href="/INFO/SerInfo?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
+											<c:if test="${sub.com_id eq 'COM0027'}">
+												<a class="dropdown-item" href="/RES/ResInfo?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
+											<c:if test="${sub.com_id eq 'COM0028'}">
+												<a class="dropdown-item" href="/RES/ResListForm?m_id=${ login.m_id }">${ sub.com_val }</a>
+											</c:if>
 										</c:if>
 									</c:if>
 								</c:forEach>

@@ -9,6 +9,7 @@ public class MemberVo {
 	private String tel;
 	private String email;
 	private String lvl;
+	private String    cnt;
 	
 	// getter setter
 	
@@ -57,10 +58,18 @@ public class MemberVo {
 		this.lvl = lvl;
 	}
 	
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "MemberVo [m_idx=" + m_idx + ", m_id=" + m_id + ", m_name=" + m_name + ", m_pw=" + m_pw + ", tel=" + tel
-				+ ", email=" + email + ", lvl=" + lvl + "]";
+				+ ", email=" + email + ", lvl=" + lvl + ", cnt=" + cnt + "]";
 	}
 	
 	

@@ -78,6 +78,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../../include/nav.jsp" %>
 	<div>UpdateInfo</div>
 	<form action="/INFO/UpdateInfo" method="POST" id="updateFrm">
 		<table>

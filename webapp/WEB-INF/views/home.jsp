@@ -6,8 +6,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 	crossorigin="anonymous"></script>
@@ -20,6 +18,7 @@
 		<div class="bg-frame_img">
 			<img class="bg_img" src="/img/back.jpg">
 		</div>
+		<div class="blurBox"></div>
 		<div class="bg-frame_content">
 			<div class="bg-title">
 				<p
@@ -38,18 +37,5 @@
 			<p>©자바웹개발과정 프로젝트 1조 : 이영효, 손문배, 손형호, 최은영, 최상훈</p>
 		</div>
 	</footer>
-
-
-
-	<%-- 
-	
-   	<div><a href="/INFO/SerInfo?m_id=${login.m_id }">My Info:first page</a></div>
-	<div><a href="/RES/ResInfo?m_id=${login.m_id }">My Reservation</a></div>
-	<div><a href="/RES/ResListForm?m_id=${login.m_id }">이전예약</a></div>
-	
-	<div><a href="/PDS/home">공지사항</a></div>
-   
->>>>>>> 은영
---%>
 </body>
 </html>

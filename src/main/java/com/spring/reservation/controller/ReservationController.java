@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 import com.spring.reservation.service.ReservationService;
 import com.spring.reservation.vo.ReservationVo;
 
@@ -21,9 +23,18 @@ public class ReservationController {
 	@Autowired
 	ReservationService reservationService;
 	
+	@Autowired
+	MenuService menuService;
+	
 	@RequestMapping("/Res")
-	public String resHome() {
-		return "reservation/reshome";
+	public ModelAndView resHome() {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("menuList", menuList);
+		mv.setViewName("reservation/reshome");
+		return mv;
 
 	}
 	
@@ -45,9 +56,11 @@ public class ReservationController {
 	public ModelAndView resDetail (@RequestParam HashMap<String,Object> map) {
 		
 		System.out.println("RES/detail : " + map.get("r_idx"));
-		
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
 		
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("menuList", menuList);
 		mv.setViewName("reservation/resdetail");
 		mv.addObject("map",map);
 	

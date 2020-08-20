@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.wrapMypage {
+	width: 100%;
+	/* margin-bottom: 50px; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #F2F2F2;
+}
+
+.divSub {
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.subMypage {
+	text-decoration: none;
+	color: #848484;
+}

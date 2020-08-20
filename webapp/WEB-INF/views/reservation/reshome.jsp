@@ -14,7 +14,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
+	  var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
     $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 0}).val();
+    
+    $('#startdate').datepicker('setDate', today);
    
   } );
  

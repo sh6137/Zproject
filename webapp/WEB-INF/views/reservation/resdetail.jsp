@@ -27,10 +27,14 @@ $('select').on('change',function(){
 		 console.log(selected);
  
 		 var strHTML = "";
-		 
+		 if(selected == "-"){
+			 strHTML += "숙박기간을 선택해주세요";
+			 $('#here').html(strHTML); 
+		 }
+		 else{
 		 strHTML +=""+selected * ${map.r_price}+" 원";
-		  $('#here').html(strHTML); 
-})	;
+		  $('#here').html(strHTML);} 
+});
 	 
 $(function(){
 	$("body").on("click","#btnRes",function(){

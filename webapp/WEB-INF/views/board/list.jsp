@@ -22,9 +22,9 @@ a {
 }
 
 
-#pdslist {
-	min-width:800px;
-}
+ h1 {
+ 	padding: 0px 100px 0px 800px;
+ }
 
 .button {
 
@@ -98,7 +98,6 @@ a {
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp"%>
-    <div id="wrapbody">
       <div class="wrapTitle">
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0023">공지사항</a></div>
          <div class="el"><a class="el-a" href="/PDS/List?com_id=COM0024">문의</a></div>
@@ -112,6 +111,7 @@ a {
    
    <!--  메뉴 -->
    
+    <div id="wrapbody">
    <table id="pdslist" border="1px solid black;">
    <thead>
    <tr>

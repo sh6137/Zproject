@@ -10,8 +10,8 @@
 	textarea { width:400px; height:150px; }
 	#err_title {color:red; font-wight:bold; }
 	#writetable {border:1px solid black; table-align:center; width:60%; hight:80%; margin:auto;}
-	td { border:1px solid cyan; text-align:center;}
-	tr { border:1px solid cyan; text-align:center;}
+	td { border:1px solid #E5E4E4; text-align:center;}
+	tr { border:1px solid #E5E4E4; text-align:center;}
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 

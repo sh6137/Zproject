@@ -21,11 +21,9 @@ public class PdsController {
 
 	@Autowired
 	private PdsService pdsService;
-	
+
 	@Autowired
 	private MenuService menuService;
-
-	
 	
 	  @RequestMapping("/PDS/home") public String home(
 	  
@@ -37,20 +35,17 @@ public class PdsController {
 
 	@RequestMapping("/PDS/List")
 	public ModelAndView pdsList(@RequestParam HashMap<String, Object> map) {
-
+		
 	//	System.out.println("list 확인1:" + map);
+		
+		
 		List<PdsVo> pdsList = pdsService.getPdsList(map);
-		
-		// menus
-		HashMap<String, Object> map1 = new HashMap<String, Object>();
-		List<MenuVo> menuList = menuService.getMenu(map1);
-		
-		System.out.println("pdsList: " + pdsList);
+		List<MenuVo> menuList = menuService.getMenu(map);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("com_id", map.get("com_id"));
-		mv.addObject("pdsList", pdsList);
 		mv.addObject("menuList", menuList);
+		mv.addObject("pdsList", pdsList);
 		mv.setViewName("board/list");
 		return mv;
 	}
@@ -139,7 +134,7 @@ public class PdsController {
 			ModelAndView mv = new ModelAndView();
 			System.out.println("수정2:" + map);
 			mv.setViewName("redirect:/PDS/home");
-			
+
 			return mv;
 			
 			

@@ -12,8 +12,9 @@
 <style type="text/css">
 /* choi */
 body {
+	width:95%;
 	margin: 0 auto;
-	padding: 0;
+	padding: 0px 0px 0px 100px;
 }
 /* end */
 a {
@@ -23,7 +24,8 @@ a {
 
 #pdslist {
 	min-width:800px;
-	overflow-x:auto;
+	background-color: #E5E4E4;
+
 }
 
 .td {
@@ -50,10 +52,13 @@ a {
 	color: #848484;
 	text-decoration: none;
 }
+
+
 </style> 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+
 
 
 <script>
@@ -117,9 +122,7 @@ a {
  		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
  		    	</c:if>
 		    </c:if>
-		</div>
-		<div colspan="2">
-		 <a href="/">Main</a>	     
+		  <a href="/">Main</a>	   
 		</div>
      </div> 
    

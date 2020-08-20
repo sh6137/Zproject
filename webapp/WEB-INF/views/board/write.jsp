@@ -6,10 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+ 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <style>
 	textarea { width:400px; height:150px; }
 	#err_title {color:red; font-wight:bold; }
 	#writetable {border:1px solid black; table-align:center; width:60%; hight:80%; margin:auto;}
+	# container { padding : 300px; 0px; 0px; 0px; }
 	td { border:1px solid #E5E4E4; text-align:center;}
 	tr { border:1px solid #E5E4E4; text-align:center;}
 </style>
@@ -42,11 +51,13 @@ $( function() {
 </script>
 </head>
 <body>
-
-  <h1 align="center"> Boarder Write </h1>
+<div class="container">
+  <thead>
+  <h3 align="center"> Boarder Write </h3>
+  </thead>
   <!-- 메뉴 처리 -->
 
-  
+  <tbody>
   <form action="/PDS/Write" method="POST" id="write">
   <table id="writetable">
     <tr>
@@ -55,7 +66,9 @@ $( function() {
     </tr>
     <tr>
       <td>제목</td>
-      <td><input type="text" name="title" /></td>
+      <td><input type="text" name="title" />
+      <span id="err_title"></span>
+      </td>
     </tr>
     <tr>
       <td>내용</td>
@@ -80,6 +93,7 @@ $( function() {
 
   </table>
   </form>
-
+  </tbody>
+</div>
 </body>
 </html>

@@ -24,8 +24,6 @@ a {
 
 #pdslist {
 	min-width:800px;
-	background-color: #E5E4E4;
-
 }
 
 .td {

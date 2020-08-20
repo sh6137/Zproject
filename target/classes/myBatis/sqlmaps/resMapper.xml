@@ -56,6 +56,15 @@
 	    	)}
 	    	
 	    </select>
+	    
+	    <select id="mainResList" statementType="CALLABLE"
+	    	parameterType="hashmap" resultType="com.spring.res.vo.ResVO">
+	    	
+	    	{CALL PKG_RES.PROC_MAIN_LIST(
+	    		#{result,		mode=OUT,	jdbcType=CURSOR, javaType=ResultSet, resultMap=resMap }
+	    	)}
+	    	
+	    </select>
    
 	</mapper>  
     

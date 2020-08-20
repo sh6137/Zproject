@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/mypage.css" />
 <title>MY RESERVATION</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 
@@ -57,85 +58,86 @@
 
 
 	<div style="height: 30px;"></div>
-	<h3>예약현황</h3>
-	<c:forEach var="resVO" items="${ recresList }">
+	<h3 style="text-align:center">예약현황</h3>
+	<c:forEach var="resVO" items="${ recresList }" >
 		<c:choose>
 			<c:when test="${ resVO.rn eq 0 }">
 				<div>
 					<div>
-						<h3>예약이 없습니다.</h3>
+						<h3 style="text-align:center">예약이 없습니다.</h3>
 						<input type="button" value="OK"
-							onclick="location.href='/INFO/ConInfo?m_id=${ map.m_id }'">
+							onclick="location.href='/INFO/ConInfo?m_id=${ map.m_id }'" class="btn btn-primary">
 					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
-				<table>
+				<table class="table table-hover">
 					<tr>
 						<th>예약자 이름</th>
 						<td><input type="text" name="book_name"
-							value="${ resVO.book_name }" /></td>
+							value="${ resVO.book_name }" class="form-control-plaintext"/></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td><input type="text" name="r_tel" value="${ resVO.r_tel }" /></td>
+						<td><input type="text" name="r_tel" value="${ resVO.r_tel }" class="form-control-plaintext"/></td>
 					</tr>
 					<tr>
 						<th>이용일자</th>
 						<td><input type="text" name="usedate"
-							value="${ resVO.start_date } ~ ${ resVO.end_date }" /></td>
+							value="${ resVO.start_date } ~ ${ resVO.end_date }" class="form-control-plaintext"/></td>
 					</tr>
 					<tr>
 						<th>금액</th>
 						<td><input type="text" name="r_price"
-							value="${ resVO.r_price }" /></td>
+							value="${ resVO.r_price }" class="form-control-plaintext"/></td>
 					</tr>
 					<tr>
 						<th>확정여부</th>
 						<td><c:choose>
 								<c:when test="${ resVO.res_status eq 1 }">
-                           ${ resVO.res_status_info }
-                        </c:when>
+	                        ${ resVO.res_status_info }
+	                     </c:when>
 								<c:otherwise>
 									<c:choose>
 										<c:when test="${ resVO.res_status eq 0 }">
-                                 ${ resVO.res_status_info }
-                              </c:when>
+	                        		${ resVO.res_status_info }
+	                        	</c:when>
 										<c:otherwise>
 											<c:choose>
 												<c:when test="${ resVO.res_status eq 2 }">
-                                             ${ resVO.res_status_info }
-                                          </c:when>
+					                        		${ resVO.res_status_info }
+					                        	</c:when>
 												<c:otherwise>
 													<c:choose>
 														<c:when test="${ resVO.res_status eq 3 }">
-                                                   ${ resVO.res_status_info }
-                                                </c:when>
+					                        				${ resVO.res_status_info }
+					                        			</c:when>
 													</c:choose>
 												</c:otherwise>
 											</c:choose>
 										</c:otherwise>
 									</c:choose>
 								</c:otherwise>
-							</c:choose></td>
+							</c:choose>
+						</td>
 					</tr>
 					<tr>
-						<td colspan="2"><c:choose>
+						<td colspan="2">
+							<c:choose>
 								<c:when test="${ resVO.cc_true eq 'T' }">
-									<input type="button" name="" value="취소"
-										id="rec_cc${ resVO.rn }" onclick="canRE(${ resVO.rn })" />
+									<input type="button" name="" value="취소" id="rec_cc${ resVO.rn }" onclick="canRE(${ resVO.rn })" class="btn btn-primary" align="center"/>
 								</c:when>
 								<c:otherwise>
-
+			
 								</c:otherwise>
-							</c:choose></td>
+							</c:choose>
+						</td>
 					</tr>
 				</table>
 				<input type="hidden" id="m_id${ resVO.rn }" value="${ resVO.m_id }" />
-				<input type="hidden" id="res_idx${ resVO.rn }"
-					value="${ resVO.res_idx }" />
+				<input type="hidden" id="res_idx${ resVO.rn }" value="${ resVO.res_idx }" />
 				<input type="hidden" id="r_id${ resVO.rn }" value="${ resVO.r_id }" />
-			</c:otherwise>
+	 		</c:otherwise>
 		</c:choose>
 	</c:forEach>
 	<input type="hidden" id="maxRN" value="${ maxRn }">

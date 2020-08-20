@@ -39,4 +39,11 @@ public class ResDaoImpl implements ResDao {
 		return resList;
 	}
 	
+	@Override
+	public List<ResVO> mainResList(HashMap<String, Object> map) {
+		sS.selectOne("res.mainResList", map);
+		List<ResVO> mainResList = (List<ResVO>) map.get("result");
+		return mainResList;
+	}
+	
 }

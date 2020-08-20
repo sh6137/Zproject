@@ -9,9 +9,18 @@
 <title>예약 리스트</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+.wrapList {
+	margin: 0 auto;
+	width: 50%;
+}
+</style>
 <script>
 	$(function() {
 
@@ -134,7 +143,7 @@
 </head>
 <body>
 	<%@ include file="../../include/nav.jsp"%>
-	<div class="wrapMypage">
+	<div class="wrapMypage" style="margin-bottom: 50px;">
 		<c:forEach var="main" items="${ menuList }">
 			<c:if test="${main.com_id eq 'COM0015'}">
 				<c:forEach var="sub" items="${ menuList }">
@@ -162,20 +171,23 @@
 	</div>
 
 	<div>
-		<p>검색하실 날짜를 선택해주세요</p>
-		<input type="text" id="startdate" readonly="readonly"> ~ <input type="text" id="enddate" readonly="readonly">
-		<input type="button" value="검색" id="resList" />
+
+		<div class="wrapList">
+			<p>검색하실 날짜를 선택해주세요</p>
+			<input type="text" id="startdate" readonly="readonly"> ~ <input
+				type="text" id="enddate" readonly="readonly"> <input
+				type="button" value="검색" id="resList" />
+		<table id="resList_TBL" class="table table-hover">
+			<tr id="title">
+				<th>순서</th>
+				<th>날짜</th>
+				<th>방</th>
+				<th>예약자 성명</th>
+				<th>구분</th>
+				<th>금액</th>
+			</tr>
+		</table>
+		<input type="hidden" id="m_id" value="${ map.m_id }" />
 	</div>
-	<table id="resList_TBL" class="table table-hover">
-		<tr id="title">
-			<th>순서</th>
-			<th>날짜</th>
-			<th>방</th>
-			<th>예약자 성명</th>
-			<th>구분</th>
-			<th>금액</th>
-		</tr>
-	</table>
-	<input type="hidden" id="m_id" value="${ map.m_id }" />
 </body>
 </html>

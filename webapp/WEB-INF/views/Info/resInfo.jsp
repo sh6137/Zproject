@@ -26,6 +26,7 @@
 </script>
 </head>
 <body>
+ <%@ include file="../../include/nav.jsp" %>
    <div style="height:30px;"></div>
    <h3>예약현황</h3>
    <c:forEach var="resVO" items="${ recresList }" >

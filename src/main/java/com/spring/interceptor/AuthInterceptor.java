@@ -31,6 +31,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		case "/FindPWFrom":
 		case "/FindPW":
 		case "/ChangePw":
+		case "/Join/CheckId":
 			return true; //제외
 		}
 		if(object ==null) {

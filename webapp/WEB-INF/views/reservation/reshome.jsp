@@ -8,8 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>예약페이지</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!--   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
@@ -136,7 +137,13 @@
 	          			var rowData = new Array();
 	          			var tdArr = new Array();
 	          			var checkbox = $("input[name=room_CheckBox]:checked");
-	          			
+	          			var chk =false;
+	          			for(var i=0 ; i<checkbox.length ; i++) { 
+	          				if(checkbox[i].checked) { chk = true; }
+	          				else { chk = false; } 
+	          				}
+
+	          			if(chk){
 	          			
 	          			checkbox.each(function(i) {
 
@@ -165,7 +172,10 @@
 	          				tdArr.push(r_id);//6
 		
 	          			});
-	          			
+	          			}
+	          			else { 
+	          				alert("원하는 객실을 선택해 주세요") 
+	          				return false;}
 	          			console.log(tdArr);
 	          		
 	          			location.href = "/Res/Detail?r_idx="+tdArr[0]+"&r_name="+tdArr[1]+"&r_price="+tdArr[3]+
@@ -208,8 +218,12 @@
 </head>
 <body>
 
+<%@ include file="../../include/nav.jsp" %>
+
+<div>
 <h2> 객실&요금 조회 </h2> 
 <input type="text" id="startdate" name= "startdate" class="form-control-plaintext" placeholder="여기를 클릭해주세요" style = " display: inline-block;width:300px;border:1px solid black;"><input type  ="button"   class='btn btn-primary' id = "btn1" value ="조회">
+</div>
 
 
 

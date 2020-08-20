@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.member.service.MemberService;
@@ -57,6 +58,7 @@ public class MemberController {
       MemberVo vo = memberService.login(map);
       if(vo !=null) {
          session.setAttribute("login", vo);
+         System.out.println("ddsfeffwsfewsf"+vo);
          returnURL ="redirect:/";
          
       }else {
@@ -91,10 +93,19 @@ public class MemberController {
       mv.setViewName("login/loginForm");
       return mv;
    }
+	
+	 @RequestMapping("/Join/CheckId")
+	 @ResponseBody
+	 public String checkId(@RequestParam HashMap<String, Object> map) {
+		 String vo = memberService.checkId(map);
+		 System.out.println("final :" + vo);
+	     return vo;
+	 }
+	 
    //회원가입 구역 끝
    
-   //아이디 비밀번호 찾는 구역
-   @RequestMapping("/FindIDForm")
+	 //아이디 비밀번호 찾는 구역
+	 @RequestMapping("/FindIDForm")
    public ModelAndView findIdForm() {
       System.out.println("findform모델엔뷰");
       ModelAndView mv = new ModelAndView();

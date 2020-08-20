@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.info.service.InfoService;
 import com.spring.info.vo.InfoVO;
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 import com.spring.res.service.ResService;
 import com.spring.res.vo.ResVO;
 
@@ -25,6 +27,8 @@ public class InfoController {
 	InfoService infoService;
 	@Autowired
 	ResService resService;
+	@Autowired
+	MenuService menuService;
 	/*
 	 * @RequestMapping("/") public ModelAndView home() {
 	 * 
@@ -45,11 +49,13 @@ public class InfoController {
 	public ModelAndView info(@RequestParam HashMap<String, Object> map) {
 
 		InfoVO infoVO = infoService.serInfo(map);
-
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
 		System.out.println("/INFO/SerInfo의 map : " + map);
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Info/serInfo");
+		mv.addObject("menuList", menuList);
 		mv.addObject("infoVO", infoVO);
 		mv.addObject("map", map);
 
@@ -62,7 +68,8 @@ public class InfoController {
 
 		InfoVO infoVO = infoService.conInfo(map);
 		System.out.println("/INFO/ConInfo의 map : " + map);
-
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
 		String returnURL = "";
 
 		if (infoVO != null) {
@@ -73,6 +80,7 @@ public class InfoController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(returnURL);
+		mv.addObject("menuList", menuList);
 		mv.addObject("infoVO", infoVO);
 		mv.addObject("map", map);
 
@@ -84,7 +92,7 @@ public class InfoController {
 	public ModelAndView updateInfo(@RequestParam HashMap<String, Object> map) {
 		System.out.println("/INFO/UpdateInfo의 map : " + map);
 		infoService.updateInfo(map);
-
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/INFO/SerInfo?m_id=" + map.get("m_id") + "&lvl=1");
 
@@ -110,12 +118,15 @@ public class InfoController {
 		System.out.println("/RES/ResInfo의 map : " + map);
 		List<ResVO> recresList = resService.recresInfo(map);
 		System.out.println("/RES/ResInfo의 recresList : " + recresList);
-
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Info/resInfo");
 		mv.addObject("map", map);
 		mv.addObject("recresList", recresList);
-
+		mv.addObject("menuList", menuList);
+		
 		return mv;
 
 	}
@@ -124,11 +135,15 @@ public class InfoController {
 	public ModelAndView canRE(@RequestParam HashMap<String, Object> map) {
 		System.out.println("/RES/CanRE의 map : " + map);
 		resService.resCc(map);
-
+		
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/RES/ResInfo?m_id=" + map.get("m_id"));
 		mv.addObject("map", map);
-
+		mv.addObject("menuList", menuList);
+		
 		return mv;
 
 	}
@@ -136,8 +151,11 @@ public class InfoController {
 	@RequestMapping("/RES/ResListForm")
 	public ModelAndView resListForm(@RequestParam HashMap<String, Object> map) {
 		System.out.println("/RES/ResListForm의 map : " + map);
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
+		
 		ModelAndView mv = new ModelAndView();
-
+		mv.addObject("menuList", menuList);
 		mv.setViewName("Info/resListt");
 		mv.addObject("map", map);
 
@@ -149,6 +167,7 @@ public class InfoController {
 	@ResponseBody
 	public List<ResVO> resList(@RequestParam HashMap<String, Object> map) {
 		System.out.println("/RES/ResListForm의 map : " + map);
+		
 		ModelAndView mv = new ModelAndView();
 
 		List<ResVO> resList = resService.resList(map);

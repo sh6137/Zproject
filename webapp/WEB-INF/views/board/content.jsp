@@ -113,10 +113,10 @@ table.type09 td {
           <a  class="button" href="/PDS/List?com_id=${ com_id }">리스트로</a>    
         <c:choose>
           <c:when test="${login.m_id eq pdsVo.m_id }" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}"class="button" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까? 답변이 있을시 삭제되지 않습니다')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}&nref=${pdsVo.nref}&lvl=${pdsVo.lvl}&step=${pdsVo.step}" class="button" id="deletePds" > 삭제 </a>
           </c:when>
           <c:when test="${login.m_name eq '관리자'}" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}" class="button" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까? 답변이 있을시 삭제되지 않습니다')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}&nref=${pdsVo.nref}&lvl=${pdsVo.lvl}&step=${pdsVo.step}" class="button" id="deletePds" > 삭제 </a>
           </c:when>
          </c:choose>
    			<c:if test="${com_id eq 'COM0024'}" >   

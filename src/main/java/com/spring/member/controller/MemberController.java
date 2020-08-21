@@ -21,7 +21,7 @@ import com.spring.menu.vo.MenuVo;
 
 
 @Controller
-public class MemberController {
+public class MemberController{
    
    @Autowired
    MemberService memberService;
@@ -85,13 +85,18 @@ public class MemberController {
    }
    
    @RequestMapping("/Join/Join")
-   public ModelAndView join(@RequestParam HashMap<String, Object> map) {
+   public ModelAndView join(@RequestParam HashMap<String, Object> map 
+		   ) {
       System.out.println("join모델엔뷰"+map);
       memberService.setJoin(map);
-      
+  
       ModelAndView mv = new ModelAndView();
-      mv.setViewName("login/loginForm");
-      return mv;
+      
+          mv.setViewName("login/loginForm");
+          return mv;
+    
+     // mv.setViewName("login/loginForm");
+     // return mv;
    }
 	
 	 @RequestMapping("/Join/CheckId")
@@ -165,4 +170,5 @@ public class MemberController {
       mv.setViewName("login/loginForm");
       return mv;
    }
+
 }

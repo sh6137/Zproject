@@ -81,9 +81,9 @@
 </style>
 </head>
 <body>
-
+	<%@ include file="../../include/nav.jsp" %>
   <div id="calendar"></div>
-  <div style="text-align:center;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
+  <div style="text-align:center; margin:30px;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
 
 </body>
 </html>

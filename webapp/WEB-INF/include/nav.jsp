@@ -13,6 +13,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <!-- 게시판 데이터 테이블 버전 일치  -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
 <style>
 	.dropdown:hover .dropdown-menu {
@@ -50,7 +51,7 @@
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0013'}">
 										<c:if test="${main.com_id eq sub.parent_id}">
-												<a class="dropdown-item" href="/Res">${ sub.com_val }</a>
+												<a class="dropdown-item" href="/INSRES/allResList">${ sub.com_val }</a>
 										</c:if>
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0014'}">

@@ -3,11 +3,22 @@ package com.spring.member.vo;
 public class MemberVo {
 	// field
 	private String m_idx;
+	
+	
 	private String m_id;
+	
+	
 	private String m_name;
+	
+	
 	private String m_pw;
+	
+	
 	private String tel;
+	
+	
 	private String email;
+	
 	private String lvl;
 	private String    cnt;
 	

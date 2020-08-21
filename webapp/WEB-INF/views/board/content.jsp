@@ -8,6 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="/css/common.css" />
+ <style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+</style>
 <style>
 	body {
 	margin: 0 auto;
@@ -41,6 +47,33 @@ table.type09 td {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
 }
+.button {
+
+    width:100px;
+
+    background-color: #F2F2F2;
+
+    border: none;
+
+    color:black;
+
+    padding: 5px 0;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 15px;
+
+    margin: 0px;
+
+    cursor: pointer;
+
+}
+
+
 </style>
 </head>
 <body>
@@ -77,20 +110,20 @@ table.type09 td {
 	 	
      <tr>       
        <td colspan="4">          
-          <a href="/PDS/List?com_id=${ com_id }">리스트로</a>    
+          <a  class="button" href="/PDS/List?com_id=${ com_id }">리스트로</a>    
         <c:choose>
           <c:when test="${login.m_id eq pdsVo.m_id }" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까? 답변이 있을시 삭제되지 않습니다')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}&nref=${pdsVo.nref}&lvl=${pdsVo.lvl}&step=${pdsVo.step}" class="button" id="deletePds" > 삭제 </a>
           </c:when>
           <c:when test="${login.m_name eq '관리자'}" >               
-          <a onclick="return confirm('정말로 삭제하시겠습니까?')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}" id="deletePds" > 삭제 </a>
+          <a onclick="return confirm('정말로 삭제하시겠습니까? 답변이 있을시 삭제되지 않습니다')" href="/PDS/Delete?b_idx=${pdsVo.b_idx}&com_id=${com_id}&nref=${pdsVo.nref}&lvl=${pdsVo.lvl}&step=${pdsVo.step}" class="button" id="deletePds" > 삭제 </a>
           </c:when>
          </c:choose>
    			<c:if test="${com_id eq 'COM0024'}" >   
-            <a  href="/PDS/WriteForm?bnum=${pdsVo.bnum}&com_id=COM0024&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&m_id=${login.m_id}&m_name=${pdsVo.m_name}">답글쓰기</a>
+            <a class="button" href="/PDS/WriteForm?bnum=${pdsVo.bnum}&com_id=COM0024&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&m_id=${login.m_id}&m_name=${pdsVo.m_name}">답글쓰기</a>
 			</c:if>
 		  <c:if test="${login.m_id eq pdsVo.m_id }" >  
-          <a href="/PDS/UpdateForm?b_idx=${pdsVo.b_idx}"> 수정 </a>
+          <a class="button" href="/PDS/UpdateForm?b_idx=${pdsVo.b_idx}"> 수정 </a>
           </c:if>
        </td>     
      </tr>

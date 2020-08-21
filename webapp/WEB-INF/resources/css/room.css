@@ -82,13 +82,32 @@ tr, td {
 }
 
 .carousel {
+	z-index: 1;
 	width: 50%;
 	height: 50%;
 	padding: 10px;
 	
-	border: 1px solid white;
+	border: 2px solid white;
 }
  
 .img-size {
 	height: 100%;
+}
+
+
+.blurBox{
+	position: absolute;
+	z-index: -2;
+	width: 80%;
+	height: 30%;
+	top: 85%;
+	left: 50%;
+	z-index: 2;
+	transform: translate(-50%, -50%);
+	
+	filter: blur(50px);
+    -webkit-filter: blur(50px);
+    
+    background-color: white;
+    opacity: 0.3;
 }

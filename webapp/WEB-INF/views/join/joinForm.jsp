@@ -21,11 +21,12 @@
 	crossorigin="anonymous"></script>
 <script>
 	$(function(){
-		$('#btnCheck').on('click', function(){
+		$('#m_id').blur(function(){
 			var checkId = $('#m_id').val();
 			$.ajax({
 				url      : '/Join/CheckId?m_id=' + checkId,
 				type     : 'GET',
+				
 				dataType : 'json',
 				success  : function(data){
 					
@@ -36,7 +37,7 @@
 					} else {
 						$("#id_check").text("사용 가능한 아이디입니다.");
 						$("#id_check").css("color", "blue");
-						$("#reg_submit").attr("disabled", true);
+						$("#reg_submit").attr("disabled", false);
 					}
 					
 				},
@@ -76,10 +77,16 @@
 							<p class="login-card-description">JOIN US</p>
 							<form action="/Join/Join" method="POST">
 								<div class="form-group test">
-									<input style="width: 70%" type="text" name="m_id"
+									<input style="width: 100%" type="text" name="m_id"
 										id="m_id" class="form-control" placeholder="ID"
-										required="required" />
+										required="required"  />
+									<!-- 	
+									 <form:errors path="m_id" cssClass="error" />
+								  	 -->
+								  	<!--
 									<input type="button" value="중복확인" id="btnCheck">
+								-->
+								
 								</div>
 								<div class="check_font" id="id_check"></div>
 
@@ -100,7 +107,7 @@
 										placeholder="이메일" required="required" />
 								</div>
 								<input type="hidden" name="lvl" value="1" /> <input
-									class="btn btn-block login-btn mb-4" type="submit" value="가입하기">
+									class="btn btn-block login-btn mb-4" id="reg_submit" type="submit" value="가입하기">
 							</form>
 						</div>
 					</div>

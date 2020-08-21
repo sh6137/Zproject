@@ -9,12 +9,18 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/> -->
 <title>Community</title>
+<style>
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	    margin-top: 0;
+	}
+</style>
 <style type="text/css">
 /* choi */
-body {
+ #wrapbody {
 	width:95%;
 	margin: 0 auto;
-	padding: 0px 0px 0px 100px;
+	padding: 0px 100px 0px 100px;
 }
 /* end */
 a {
@@ -22,15 +28,39 @@ a {
 }
 
 
-#pdslist {
-	min-width:800px;
-	background-color: #E5E4E4;
+ h1 {
+	align : center;
+ 	text-align:center;
+ }
+
+.button {
+
+    width:100px;
+
+    background-color: #F2F2F2;
+
+    border: none;
+
+    color:black;
+
+    padding: 5px 0;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    font-size: 15px;
+
+    margin: 0px;
+
+    cursor: pointer;
+    
+    align : right;
 
 }
 
-.td {
-	
-}
 
 .wrapTitle {
 	width: 100%;
@@ -88,6 +118,7 @@ a {
    
    <!--  메뉴 -->
    
+    <div id="wrapbody">
    <table id="pdslist" border="1px solid black;">
    <thead>
    <tr>
@@ -115,14 +146,14 @@ a {
      <div>
      	<div colspan="2">
 	     	<c:if test="${ login.m_id eq 'KSJ' }" > <!-- 관리자명 적을것 -->
- 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+ 		    <a class="button"   href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
 		    </c:if>
 		    <c:if test="${ com_id eq 'COM0024' }" >
 				<c:if test="${login.m_id ne 'KSJ' }" >
- 		    <a href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
+ 		    <a class="button"  href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
  		    	</c:if>
 		    </c:if>
-		  <a href="/">Main</a>	   
+		  <a  class="button"  href="/">Main</a>	   
 		</div>
      </div> 
    
@@ -134,6 +165,6 @@ a {
      <input type="hidden"  name="m_name"       value="${ pdsVo.m_name }" />
 
 
-
+</div>
 </body>
 </html>

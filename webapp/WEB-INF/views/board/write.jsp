@@ -21,10 +21,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <style>
-	textarea { width:400px; height:150px; }
+	textarea { width:600px; height:300px; }
 	#err_title {color:red; font-wight:bold; }
 	#writetable {border:1px solid black; table-align:center; width:60%; hight:80%; margin:auto;}
-	# container { padding : 300px; 0px; 0px; 0px; }
+	#container { padding : 300px; 0px; 0px; 0px; }
 	td { border:1px solid #E5E4E4; text-align:center;}
 	tr { border:1px solid #E5E4E4; text-align:center;}
 </style>

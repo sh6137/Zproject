@@ -29,7 +29,8 @@ a {
 
 
  h1 {
- 	padding: 0px 100px 0px 800px;
+	align : center;
+ 	text-align:center;
  }
 
 .button {

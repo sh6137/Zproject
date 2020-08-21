@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,21 +85,16 @@ public class MemberController{
    }
    
    @RequestMapping("/Join/Join")
-   public ModelAndView join(@RequestParam HashMap<String, Object> map, BindingResult bindingResult) {
+   public ModelAndView join(@RequestParam HashMap<String, Object> map 
+		   ) {
       System.out.println("join모델엔뷰"+map);
       memberService.setJoin(map);
   
       ModelAndView mv = new ModelAndView();
-      if(bindingResult.hasErrors()) {
-          System.out.println("에러발생");
-          mv.setViewName("login/loginForm");
-          return mv;
-      } else {
-          System.out.println("회원가입성공!!");
-          mv.setViewName("login/loginForm");
-          return mv;
-      }
       
+          mv.setViewName("login/loginForm");
+          return mv;
+    
      // mv.setViewName("login/loginForm");
      // return mv;
    }

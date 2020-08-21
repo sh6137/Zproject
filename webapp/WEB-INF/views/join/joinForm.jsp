@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +75,7 @@
 						<div class="card-body"
 							style="height: 700px; padding-top: 20%; padding-left: 25%;">
 							<p class="login-card-description">JOIN US</p>
-							<form:form action="/Join/Join" method="POST" commandName="MemberVo">
+							<form action="/Join/Join" method="POST">
 								<div class="form-group test">
 									<input style="width: 100%" type="text" name="m_id"
 										id="m_id" class="form-control" placeholder="ID"
@@ -109,7 +108,7 @@
 								</div>
 								<input type="hidden" name="lvl" value="1" /> <input
 									class="btn btn-block login-btn mb-4" id="reg_submit" type="submit" value="가입하기">
-							</form:form>
+							</form>
 						</div>
 					</div>
 				</div>

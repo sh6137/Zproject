@@ -14,20 +14,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.menu.service.MenuService;
+import com.spring.menu.vo.MenuVo;
 import com.spring.res.service.ResService;
 import com.spring.res.vo.ResVO;
 
 @Controller
 public class InResController {
-	
+	@Autowired
+	MenuService menuService;
 	@Autowired
 	private ResService resService;
 
 	@RequestMapping("/INSRES/allResList")
 	public ModelAndView allResList(@RequestParam HashMap<String, Object> map) {
 		
+		HashMap<String, Object> map1 = new HashMap<String, Object>();
+		List<MenuVo> menuList = menuService.getMenu(map1);
 		ModelAndView mv = new ModelAndView();
-		
+		mv.addObject("menuList", menuList);
 		mv.setViewName("Res/allRes");
 		
 		return mv;

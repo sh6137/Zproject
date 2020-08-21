@@ -51,7 +51,7 @@
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0013'}">
 										<c:if test="${main.com_id eq sub.parent_id}">
-												<a class="dropdown-item" href="/Res">${ sub.com_val }</a>
+												<a class="dropdown-item" href="/INSRES/allResList">${ sub.com_val }</a>
 										</c:if>
 									</c:if>
 									<c:if test="${main.com_id eq 'COM0014'}">

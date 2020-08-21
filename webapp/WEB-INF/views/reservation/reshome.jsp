@@ -14,7 +14,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
+	  var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
     $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 0}).val();
+    
+    $('#startdate').datepicker('setDate', today);
    
   } );
  
@@ -174,7 +179,7 @@
 	          			});
 	          			}
 	          			else { 
-	          				alert("원하는 객실을 선택해 주세요") 
+	          				swal({text:"원하는 객실을 선택해 주세요",dangerMode: true,icon: "warning"}) 
 	          				return false;}
 	          			console.log(tdArr);
 	          		

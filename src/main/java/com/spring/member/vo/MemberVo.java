@@ -1,9 +1,26 @@
 package com.spring.member.vo;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Entity;
+
+@Entity
 public class MemberVo {
 	// field
 	private String m_idx;
+	
+	@Id    // 테이블의 primary key로 매핑됨
+	@Size(min=4, max=8, message="아이디는 4~8자리이어야 합니다.")
 	private String m_id;
+	
+	@Column
+    @NotNull
+    // 정규화체크(공백이없는 2~6자리 문자)
+    @Pattern(regexp="\\S{2,6}", message="이름은 2~6자로 입력해주세요.")   
 	private String m_name;
 	private String m_pw;
 	private String tel;

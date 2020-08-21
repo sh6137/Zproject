@@ -14,12 +14,21 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
+	  var date = new Date();
+      var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
     $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 0}).val();
+    
+    $('#startdate').datepicker('setDate', today);
    
   } );
  
+
   $(function(){
+	
+	 
 	  $("body").on("click","#btn1",function(){
+		
 		  $.ajax({
 			  url: "/Res/Search",
 			  type :"POST",
@@ -52,7 +61,7 @@
 	             
                     
                     if( item.status == '예약완료')   {
-                    	strHTML += "<tr>";
+                    	strHTML += "<tr class='table-secondary'>";
                     	strHTML += "<td style='width:80px;'><input type='checkbox' name='room_checkBox'   class='form-check-input' disabled></td>";
                       	strHTML += "<td><img src='/img/"+item.r_id+".jpg' width='200px'height='120px'></td>";
     	                strHTML += "<td>" + item.r_idx + "</td>";
@@ -74,7 +83,7 @@
     	                strHTML += "</tr>";
                     }
                     else if ( item.status == '예약가능'  )  {
-                    	strHTML += "<tr>";
+                    	strHTML += "<tr class='table-light'>";
                      	strHTML += "<td align='center'><input type='checkbox' name='room_CheckBox'  class='form-check-input' ></td>";//0
                       	strHTML += "<td style='width:300px;'><img src='/img/"+item.r_id+".jpg' width='200px'height='120px'></td>";//1
     	                strHTML += "<td>" + item.r_idx + "</td>";//2
@@ -107,7 +116,7 @@
                     }
                 		
 	                  });
-	             
+				  
 		 	      //strHTML += "<td> <input type = 'button'  id ='btn2' value ='예약하기' > </td>"; 
 		 	      strHTML += "<td colspan='9' align='center'> <input type = 'button'  id ='btn2'   class='btn btn-primary' value ='예약하기' style=' font-size:25px' > </td>"; 
 				  strHTML += "</table>"; 
@@ -130,6 +139,9 @@
 	                      }
 	                      
 	                  });  
+	                
+	                  
+	                  
 
 	                  //예약하기 눌렀을때 선택한 값 넘기기
 	                  $("#div1").on("click","#btn2",function(){
@@ -174,7 +186,7 @@
 	          			});
 	          			}
 	          			else { 
-	          				alert("원하는 객실을 선택해 주세요") 
+	          				swal({text:"원하는 객실을 선택해 주세요",dangerMode: true,icon: "warning"}) 
 	          				return false;}
 	          			console.log(tdArr);
 	          		
@@ -190,11 +202,11 @@
                   alert($('#startdate').val());
               }
 			  
+			  //
 			  
 			  
-			  
-		  });
-		 
+		  });//click end
+		
 	  });
 	
 			
@@ -212,6 +224,7 @@
 
   
   </script>
+
 <style>
 
 </style>
@@ -220,9 +233,10 @@
 
 <%@ include file="../../include/nav.jsp" %>
 
-<div>
+<div style="margin:10px 0px 0px 40px;">
 <h2> 객실&요금 조회 </h2> 
 <input type="text" id="startdate" name= "startdate" class="form-control-plaintext" placeholder="여기를 클릭해주세요" style = " display: inline-block;width:300px;border:1px solid black;"><input type  ="button"   class='btn btn-primary' id = "btn1" value ="조회">
+
 </div>
 
 
@@ -230,7 +244,7 @@
 
  
  <div id ="div1">
-
+  
  </div>
  
 

@@ -52,37 +52,42 @@ $(function(){
 		
 		var m_id = "${login.m_id}";
 		var start_date = "${map.startdate}";
-	
-		if(book_tel == ""){
-			
-			alert ("전화번호를 입력하세요");
-		
-            return false;
-		}
-        if(book_name == ""){
-			
-			alert ("이름을 입력하세요");
-
-            return false;
-		}
-		if(book_email == ""){
-			
-			alert ("이메일을 입력하세요");
-
-            return false;
-		}
 		if(total == "-"){
 			
-			alert ("인원수를 선택하세요");
+			swal({text:"인원수를 선택하세요", dangerMode: true, icon: "warning"}) 
+				return false;
 
-            return false;
+           
 		}
 		if(peri == "-"){
 			
-			alert ("기간을 선택하세요");
+			swal({text:"기간을 선택하세요",dangerMode: true,icon: "warning"}) 
+				return false;
 
-            return false;
+         
 		}
+		 if(book_name == ""){
+				
+	        	swal({text:"이름을 입력하세요",dangerMode: true,icon: "warning"}) 
+					return false;
+
+	           
+		}
+		if(book_tel == ""){
+			
+			swal({text:"전화번호를 입력하세요",dangerMode: true,icon: "warning"}) 
+				return false;
+		
+           
+		}
+       
+		if(book_email == ""){
+			
+			swal({text:"이메일을 입력하세요",dangerMode: true,icon: "warning"}) 
+				return false;
+            
+		}
+		
 			
 		  location.href ="/Res/Confirm?m_id="+m_id+"&r_id="+${map.r_id}+"&book_name="+book_name+"&book_tel="+book_tel+"&book_email="+book_email+"&start_date="+start_date+"&peri="+peri+"&total="+total+"";
 		  });

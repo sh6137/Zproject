@@ -179,7 +179,7 @@
 	          			});
 	          			}
 	          			else { 
-	          				alert("원하는 객실을 선택해 주세요") 
+	          				swal({text:"원하는 객실을 선택해 주세요",dangerMode: true,icon: "warning"}) 
 	          				return false;}
 	          			console.log(tdArr);
 	          		

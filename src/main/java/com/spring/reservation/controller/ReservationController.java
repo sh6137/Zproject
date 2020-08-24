@@ -38,17 +38,14 @@ public class ReservationController {
 
 	}
 	
-	
 	@RequestMapping("/Res/Search")
 	@ResponseBody 
 	public List<ReservationVo> search(@RequestParam HashMap<String,Object> map){
-		
-		
+
 		List<ReservationVo> roomList = reservationService.roomList(map);
 		System.out.println("controller room list:" + roomList);
 		
 	return roomList;
-		
 		
 	}
 	

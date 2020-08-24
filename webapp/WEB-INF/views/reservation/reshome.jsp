@@ -17,7 +17,8 @@
 	  var date = new Date();
       var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
-    $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 1}).val();
+//    $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 1}).val();
+    $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd", minDate: 1}).val();
     
     $('#startdate').datepicker('setDate', today);
    

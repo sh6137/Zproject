@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	
+	a:link { color:black; text-decoration:none; }
+	a:visited { color:black; text-decoration:none; }
+	a:hover { color:black; text-decoration:none; }
+
+</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link href="/fullcalendar-4.3.1/core/main.css" rel="stylesheet" />
 <link href="/fullcalendar-4.3.1/daygrid/main.css" rel="stylesheet" />
@@ -51,12 +58,6 @@
 		
 	};
 	
-	function res(r_id, startdate) {
-		
-		//var strdate = startdate.substr(2, 9);
-		location.href='/Res?r_id=' + r_id + '&startdate=' + startdate;
-		
-	};
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var events = fn_get_events();
@@ -74,21 +75,17 @@
 			contentHeight: 'auto',
 			eventRender:function(info) {
 			    var imageurl = info.event.extendedProps.imageurl;
-			    if(info.event.extendedProps.imageurl) {
-			    	info.el.querySelector('.fc-title').innerHTML = "<img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span>";
-                }    
-			},
-			eventClick:function(info) {
-				var r_id = info.event.extendedProps.r_id;
+			    var r_id = info.event.extendedProps.r_id;
 				var startdate = info.event.extendedProps.strdate;
 				var t = info.event.extendedProps.t;
-				if (t != 'f') {
-					res(r_id, startdate);					
-				}
-				//location.href='/INSRES/InsRes?r_id=' + info.event.extendedProps.r_id + '&startdate=' + info.event.extendedProps.strdate;
-			    //alert(info.event.extendedProps.r_id);	    		    
-			    //alert(info.event.extendedProps.imageurl);	    		    
-			    //alert(info.event.extendedProps.strdate);	    		    
+				
+			    if(info.event.extendedProps.imageurl) {
+			    	if (t != 'f') {			    		
+				    	info.el.querySelector('.fc-title').innerHTML = "<a href='/Res?r_id=" + r_id + "&startdate=" + startdate + "'><img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span></a>";
+			    	} else {			    		
+				    	info.el.querySelector('.fc-title').innerHTML = "<img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span>";
+			    	}
+                }    
 			}
 		});
 

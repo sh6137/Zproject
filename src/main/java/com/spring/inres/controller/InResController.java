@@ -52,12 +52,23 @@ public class InResController {
 			String title = mainResList.get(i).getRes_status_info() + " " + mainResList.get(i).getR_name();
 			String start = mainResList.get(i).getStart_date();
 			String end = mainResList.get(i).getEnd_date();
-			String color = "";
+			String color = "#FFFFFF";
+			String r_id = mainResList.get(i).getR_id();
+			String imageurl = "";
+			String strdate = mainResList.get(i).getStart_date();
+			String textColor = "";
+			String t = "";
 			if (mainResList.get(i).getRes_status_info().equals("마감")) {
-				color = "#B30B00";
+				//color = "#B30B00";
+				imageurl = "/img/x.jpg";
+				textColor = "#CCCCCC";
+				t = "f";
 
 			} else {
-				color = "#0078D7";
+				//color = "#0078D7";
+				imageurl = "/img/O.jpg";
+				textColor = "#333333";
+				t = "t";
 
 			}
 			HashMap<String, Object> mapp = new HashMap<String, Object>();
@@ -65,6 +76,11 @@ public class InResController {
 			mapp.put("start", start);
 			mapp.put("end", end);
 			mapp.put("color", color);
+			mapp.put("r_id", r_id);
+			mapp.put("imageurl", imageurl);
+			mapp.put("strdate", strdate);
+			mapp.put("textColor", textColor);
+			mapp.put("t", t);
 			
 			mainRList.add(mapp);
 		}

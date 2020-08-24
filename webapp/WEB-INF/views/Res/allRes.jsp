@@ -35,12 +35,26 @@
 							title: items.title,
 							start: items.start,
 							end : items.end,
-							color : items.color
+							color : items.color,
+							textColor : items.textColor,
+							extendedProps: { 
+								r_id:items.r_id,
+								imageurl:items.imageurl,
+								strdate:items.strdate,
+								t:items.t
+							}
 							});
 				});
 			}
 		});
 		return events;
+		
+	};
+	
+	function res(r_id, startdate) {
+		
+		//var strdate = startdate.substr(2, 9);
+		location.href='/Res?r_id=' + r_id + '&startdate=' + startdate;
 		
 	};
 
@@ -56,13 +70,32 @@
 			},
 			locale : 'ko',
 			eventOrder : 'color',
-			events: events
+			events : events,
+			contentHeight: 'auto',
+			eventRender:function(info) {
+			    var imageurl = info.event.extendedProps.imageurl;
+			    if(info.event.extendedProps.imageurl) {
+			    	info.el.querySelector('.fc-title').innerHTML = "<img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span>";
+                }    
+			},
+			eventClick:function(info) {
+				var r_id = info.event.extendedProps.r_id;
+				var startdate = info.event.extendedProps.strdate;
+				var t = info.event.extendedProps.t;
+				if (t != 'f') {
+					res(r_id, startdate);					
+				}
+				//location.href='/INSRES/InsRes?r_id=' + info.event.extendedProps.r_id + '&startdate=' + info.event.extendedProps.strdate;
+			    //alert(info.event.extendedProps.r_id);	    		    
+			    //alert(info.event.extendedProps.imageurl);	    		    
+			    //alert(info.event.extendedProps.strdate);	    		    
+			}
 		});
 
 		calendar.render();
 
 	});
-	
+		
 </script>
 <style>
 
@@ -74,16 +107,16 @@
   }
 
   #calendar {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
 </style>
 </head>
 <body>
-	<%@ include file="../../include/nav.jsp" %>
+
   <div id="calendar"></div>
-  <div style="text-align:center; margin:30px;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
+  <div style="text-align:center;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
 
 </body>
 </html>

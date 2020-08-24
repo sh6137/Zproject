@@ -23,6 +23,8 @@
 	$(function(){
 		$('#m_id').blur(function(){
 			var checkId = $('#m_id').val();
+			var ID = checkId.length;
+			
 			$.ajax({
 				url      : '/Join/CheckId?m_id=' + checkId,
 				type     : 'GET',
@@ -34,10 +36,13 @@
 						$("#id_check").text("사용중인 아이디입니다.");
 						$("#id_check").css("color", "red");
 						$("#reg_submit").attr("disabled", true);
-					} else {
+					} else if(data == '0' && ID > 5){
 						$("#id_check").text("사용 가능한 아이디입니다.");
 						$("#id_check").css("color", "blue");
 						$("#reg_submit").attr("disabled", false);
+					}
+					else if(data == '0' && ID < 6){
+						$("#id_check").text("아이디는 6자 이상으로 입력 가능 합니다");
 					}
 					
 				},
@@ -46,6 +51,22 @@
 				}
 			});
 		});
+		
+		$('#m_pw').blur(function(){
+			var checkPw = $('#m_pw').val();
+			var PW = checkPw.length;
+			if(PW < 4 || PW > 12){
+	               $("#pw_check").text("비밀번호는 6자 이상으로 입력 가능 합니다");
+	               $("#pw_check").css("color", "red");
+	               $("#m_pw").focus();
+	               return false;
+	        }
+			else{
+				$("#pw_check").text("비밀번호 사용 가능");
+				$("#pw_check").css("color", "blue");
+			}
+		});
+		
 	});
 </script>
 
@@ -95,9 +116,11 @@
 										placeholder="이름" required="required" />
 								</div>
 								<div class="form-group">
-									<input type="password" name="m_pw" class="form-control"
+									<input type="password" name="m_pw" id="m_pw"class="form-control"
 										placeholder="비밀번호" required="required">
 								</div>
+								<div class="check_font" id="pw_check"></div>
+								
 								<div class="form-group">
 									<input type="text" name="tel" class="form-control"
 										placeholder="전화번호" required="required" />

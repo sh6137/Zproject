@@ -27,28 +27,26 @@ public class ReservationController {
 	MenuService menuService;
 	
 	@RequestMapping("/Res")
-	public ModelAndView resHome() {
-		HashMap<String, Object> map = new HashMap<String, Object>();
+	public ModelAndView resHome(@RequestParam HashMap<String, Object> map) {
+		//HashMap<String, Object> map = new HashMap<String, Object>();
 		List<MenuVo> menuList = menuService.getMenu(map);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("menuList", menuList);
 		mv.setViewName("reservation/reshome");
+		mv.addObject("map", map);
 		return mv;
 
 	}
 	
-	
 	@RequestMapping("/Res/Search")
 	@ResponseBody 
 	public List<ReservationVo> search(@RequestParam HashMap<String,Object> map){
-		
-		
+
 		List<ReservationVo> roomList = reservationService.roomList(map);
 		System.out.println("controller room list:" + roomList);
 		
 	return roomList;
-		
 		
 	}
 	

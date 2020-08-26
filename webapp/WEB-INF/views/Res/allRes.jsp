@@ -5,6 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	
+	a:link { color:black; text-decoration:none; }
+	a:visited { color:black; text-decoration:none; }
+	a:hover { color:black; text-decoration:none; }
+
+</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link href="/fullcalendar-4.3.1/core/main.css" rel="stylesheet" />
 <link href="/fullcalendar-4.3.1/daygrid/main.css" rel="stylesheet" />
@@ -35,7 +42,14 @@
 							title: items.title,
 							start: items.start,
 							end : items.end,
-							color : items.color
+							color : items.color,
+							textColor : items.textColor,
+							extendedProps: { 
+								r_id:items.r_id,
+								imageurl:items.imageurl,
+								strdate:items.strdate,
+								t:items.t
+							}
 							});
 				});
 			}
@@ -43,6 +57,7 @@
 		return events;
 		
 	};
+	
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var events = fn_get_events();
@@ -56,13 +71,28 @@
 			},
 			locale : 'ko',
 			eventOrder : 'color',
-			events: events
+			events : events,
+			contentHeight: 'auto',
+			eventRender:function(info) {
+			    var imageurl = info.event.extendedProps.imageurl;
+			    var r_id = info.event.extendedProps.r_id;
+				var startdate = info.event.extendedProps.strdate;
+				var t = info.event.extendedProps.t;
+				
+			    if(info.event.extendedProps.imageurl) {
+			    	if (t != 'f') {			    		
+				    	info.el.querySelector('.fc-title').innerHTML = "<a href='/Res?r_id=" + r_id + "&startdate=" + startdate + "'><img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span></a>";
+			    	} else {			    		
+				    	info.el.querySelector('.fc-title').innerHTML = "<img src=" + imageurl + " width='20' height='20'><span>" + info.event.title + "<span>";
+			    	}
+                }    
+			}
 		});
 
 		calendar.render();
 
 	});
-	
+		
 </script>
 <style>
 
@@ -74,16 +104,16 @@
   }
 
   #calendar {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
 </style>
 </head>
 <body>
-	<%@ include file="../../include/nav.jsp" %>
+
   <div id="calendar"></div>
-  <div style="text-align:center; margin:30px;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
+  <div style="text-align:center;"><input type="button" id="resGo" onclick="location.href='/Res'" value="예약하기" class="btn btn-primary"/></div>
 
 </body>
 </html>

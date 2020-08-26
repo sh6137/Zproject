@@ -17,11 +17,17 @@
 	  var date = new Date();
       var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
-//    $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 1}).val();
-    $( "#startdate" ).datepicker({dateFormat:"yy-mm-dd", minDate: 1}).val();
-    
-    $('#startdate').datepicker('setDate', today);
-   
+      var startdate = $('#date').val();
+
+	if (startdate != '') {
+		$("#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 1}).val();
+		$( "#startdate" ).datepicker('setDate', startdate);
+	} else {
+		//alert('today : ' + today);
+		$("#startdate" ).datepicker({dateFormat:"yy-mm-dd",minDate: 1}).val();
+		$('#startdate').datepicker('setDate', today);
+	}
+  
   } );
  
 
@@ -30,6 +36,8 @@
 	 
 	  $("body").on("click","#btn1",function(){
 		
+		  var rid = $('#r_id').val();
+		  
 		  $.ajax({
 			  url: "/Res/Search",
 			  type :"POST",
@@ -85,7 +93,11 @@
                     }
                     else if ( item.status == '예약가능'  )  {
                     	strHTML += "<tr class='table-light'>";
-                     	strHTML += "<td align='center'><input type='checkbox' name='room_CheckBox'  class='form-check-input' ></td>";//0
+                    	if (rid == item.r_id) {	
+	                 		strHTML += "<td align='center'><input type='checkbox' name='room_CheckBox'  class='form-check-input' checked></td>";//0
+	                	} else {
+	                 		strHTML += "<td align='center'><input type='checkbox' name='room_CheckBox'  class='form-check-input' ></td>";//0				                		
+	                	}
                       	strHTML += "<td style='width:300px;'><img src='/img/"+item.r_id+".jpg' width='200px'height='120px'></td>";//1
     	                strHTML += "<td>" + item.r_idx + "</td>";//2
     	             
@@ -249,7 +261,8 @@
   
  </div>
  
-
+<input type="hidden" id="date" value="${ map.startdate }" />
+<input type="hidden" id="r_id" value="${ map.r_id }" />
  
  
 </body>

@@ -73,20 +73,47 @@ $(function(){
 
 	           
 		}
-		if(book_tel == ""){
+		 if(book_tel == "" || book_tel.length!=11){
+				
+				swal({text:"전화번호를 입력하세요",dangerMode: true,icon: "warning"}) 
+					return false;
+
+			}
 			
-			swal({text:"전화번호를 입력하세요",dangerMode: true,icon: "warning"}) 
-				return false;
-		
-           
-		}
-       
-		if(book_email == ""){
+			if(isNaN(book_tel)){
+				swal({text:"숫자로만 입력하세요",dangerMode: true,icon: "warning"}) 
+				return false;	
+			}
 			
-			swal({text:"이메일을 입력하세요",dangerMode: true,icon: "warning"}) 
-				return false;
-            
-		}
+	       for(var i =0;i < book_tel.length;i++){
+	    	   var chk = book_tel.substring(i,i+1);
+	    	   if(chk ==" "){
+	    		   swal({text: "공백없이 입력하세요",dangerMode: true,icon: "warning"}) 
+	    		   return false;
+	    	   }
+	    	   
+	       }
+			
+			
+			if(book_email == ""){
+				
+				swal({text:"이메일을 입력하세요",dangerMode: true,icon: "warning"}) 
+					return false;
+	            
+			}
+				
+
+		 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+			if(exptext.test(book_email)==false){
+
+				swal({text:"이메일 형식이 올바르지 않습니다.",dangerMode: true,icon: "warning"}) 
+
+					return false;
+
+				
+
+			}
 		
 			
 		  location.href ="/Res/Confirm?m_id="+m_id+"&r_id="+${map.r_id}+"&book_name="+book_name+"&book_tel="+book_tel+"&book_email="+book_email+"&start_date="+start_date+"&peri="+peri+"&total="+total+"";

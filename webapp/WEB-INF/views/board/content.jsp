@@ -120,7 +120,9 @@ table.type09 td {
           </c:when>
          </c:choose>
    			<c:if test="${com_id eq 'COM0024'}" >   
-            <a class="button" href="/PDS/WriteForm?bnum=${pdsVo.bnum}&com_id=COM0024&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&m_id=${login.m_id}&m_name=${pdsVo.m_name}">답글쓰기</a>
+   				<c:if test="${login.m_name eq '관리자'}" >  
+            	<a class="button" href="/PDS/WriteForm?bnum=${pdsVo.bnum}&com_id=COM0024&lvl=${pdsVo.lvl}&step=${pdsVo.step}&nref=${pdsVo.nref}&m_id=${login.m_id}&m_name=${pdsVo.m_name}">답글쓰기</a>
+            	</c:if>
 			</c:if>
 		  <c:if test="${login.m_id eq pdsVo.m_id }" >  
           <a class="button" href="/PDS/UpdateForm?b_idx=${pdsVo.b_idx}"> 수정 </a>

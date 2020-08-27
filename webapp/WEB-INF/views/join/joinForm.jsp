@@ -43,6 +43,7 @@
 					}
 					else if(data == '0' && ID < 6){
 						$("#id_check").text("아이디는 6자 이상으로 입력 가능 합니다");
+						$("#reg_submit").attr("disabled", true);
 					}
 					
 				},

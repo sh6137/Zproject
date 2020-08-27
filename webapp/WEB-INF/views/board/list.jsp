@@ -145,7 +145,7 @@ a {
      
      <div>
      	<div colspan="2">
-	     	<c:if test="${ login.m_id eq 'sky' }" > <!-- 관리자명 적을것 -->
+	     	<c:if test="${ login.m_id eq 'admin' }" > <!-- 관리자명 적을것 -->
  		    <a class="button"   href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
 		    </c:if>
 		    <c:if test="${ com_id eq 'COM0024' }" >

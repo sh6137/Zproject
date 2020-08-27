@@ -58,7 +58,7 @@
 			if ($('#om_pw').val() == $('#omv_pw').val()) {
 
 				if (confirm("탈퇴하시려면 예를 누르시고 아니면 취소를 눌러주세요")) {
-					location.href = "/INFO/ConPW?m_id=" + m_id;
+					location.href = "/INFO/DropInfo?m_id=" + m_id;
 				} else {
 					alert('취소 되었습니다.');
 				}

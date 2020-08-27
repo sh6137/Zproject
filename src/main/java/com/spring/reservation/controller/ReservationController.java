@@ -29,6 +29,7 @@ public class ReservationController {
 	@RequestMapping("/Res")
 	public ModelAndView resHome(@RequestParam HashMap<String, Object> map) {
 		//HashMap<String, Object> map = new HashMap<String, Object>();
+		System.out.println("/Res" + map);
 		List<MenuVo> menuList = menuService.getMenu(map);
 		
 		ModelAndView mv = new ModelAndView();

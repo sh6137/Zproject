@@ -24,8 +24,11 @@
 						<div class="card-body" style="height: 700px; padding-top: 20%; padding-left: 25%;">
 							<p class="login-card-description">아이디 찾기</p>
 							<div class="form-group">
-								${find.m_id }
+								아이디는 ${find.m_id } 입니다.
 							</div>
+							<form action="/FindPWFrom" method="POST">
+               					<input class="btn btn-block login-btn mb-4" type="submit" value="비밀번호 찾기">
+              				</form>
 						</div>
 					</div>
 				</div>

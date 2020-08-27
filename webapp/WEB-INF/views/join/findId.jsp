@@ -26,6 +26,11 @@
 							<div class="form-group">
 								아이디는 ${find.m_id } 입니다.
 							</div>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
 							<form action="/FindPWFrom" method="POST">
                					<input class="btn btn-block login-btn mb-4" type="submit" value="비밀번호 찾기">
               				</form>

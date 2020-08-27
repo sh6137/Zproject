@@ -56,7 +56,7 @@
 			var checkPw = $('#m_pw').val();
 			var PW = checkPw.length;
 			if(PW < 4 || PW > 12){
-	               $("#pw_check").text("비밀번호는 6자 이상으로 입력 가능 합니다");
+	               $("#pw_check").text("비밀번호는 4자 ~ 11자 로 입력 가능 합니다");
 	               $("#pw_check").css("color", "red");
 	               $("#m_pw").focus();
 	               return false;

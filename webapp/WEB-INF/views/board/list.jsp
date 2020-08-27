@@ -149,7 +149,7 @@ a {
  		    <a class="button"   href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
 		    </c:if>
 		    <c:if test="${ com_id eq 'COM0024' }" >
-				<c:if test="${login.m_id ne 'sky' }" >
+				<c:if test="${login.m_id ne 'admin' }" >
  		    <a class="button"  href="/PDS/WriteForm?com_id=${ com_id }&bnum=0&lvl=0&step=0&nref=0&m_id=${ login.m_id }&m_name=${ login.m_name}">새글 쓰기</a>
  		    	</c:if>
 		    </c:if>

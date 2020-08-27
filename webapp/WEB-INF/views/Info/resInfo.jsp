@@ -89,23 +89,23 @@
 					<tr>
 						<th>예약자 이름</th>
 						<td><input type="text" name="book_name"
-							value="${ resVO.book_name }" class="form-control-plaintext" /></td>
+							value="${ resVO.book_name }" class="form-control-plaintext" readonly="readonly"/></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
 						<td><input type="text" name="r_tel" value="${ resVO.r_tel }"
-							class="form-control-plaintext" /></td>
+							class="form-control-plaintext" readonly="readonly"/></td>
 					</tr>
 					<tr>
 						<th>이용일자</th>
 						<td><input type="text" name="usedate"
 							value="${ resVO.start_date } ~ ${ resVO.end_date }"
-							class="form-control-plaintext" /></td>
+							class="form-control-plaintext" readonly="readonly"/></td>
 					</tr>
 					<tr>
 						<th>금액</th>
 						<td><input type="text" name="r_price"
-							value="${ resVO.r_price }" class="form-control-plaintext" /></td>
+							value="${ resVO.r_price }" class="form-control-plaintext" readonly="readonly"/></td>
 					</tr>
 					<tr>
 						<th>확정여부</th>
